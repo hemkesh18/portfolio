@@ -25,7 +25,7 @@ export const portfolioData = {
     socials: {
       email: "hemkesh.c.18@gmail.com",
       github: "https://github.com/hemkesh18",
-      linkedin: "https://linkedin.com/in/hemkesh-cuddapah",
+      linkedin: "https://www.linkedin.com/in/hemkesh-cuddapah-23a0033a1/",
       leetcode: "https://github.com/hemkesh18", // fallback to github or leetcode handle
       resumePdf: "/sample-resume.pdf",
     },
