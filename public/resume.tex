@@ -1,0 +1,167 @@
+%-------------------------
+% Resume in LaTeX
+% Candidate: Cuddapah Hemkesh
+% Optimized for ATS (Applicant Tracking Systems) & Tech Screeners
+% Template: Standard 1-Page Academic & Tech Resume (Jake's Resume Format)
+%------------------------
+
+\documentclass[letterpaper,10.8pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & #2 \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Cuddapah Hemkesh} \\ \vspace{4pt}
+    \small Hyderabad, Telangana $|$ 
+    \href{mailto:hemkesh.c.18@gmail.com}{\underline{hemkesh.c.18@gmail.com}} $|$ 
+    \href{https://linkedin.com/in/hemkesh-cuddapah}{\underline{linkedin.com/in/hemkesh-cuddapah}} $|$ 
+    \href{https://github.com/hemkesh18}{\underline{github.com/hemkesh18}} $|$ 
+    \href{https://hemkesh-portfolio.vercel.app}{\underline{Portfolio}}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Chaitanya Bharathi Institute of Technology (CBIT)}{Hyderabad, Telangana}
+      {Bachelor of Engineering in Computer Science and Engineering; \textbf{CGPA: 9.05 / 10.0}}{Aug. 2024 -- July 2028}
+    \resumeSubheading
+      {Sri Chaitanya Junior College}{Hyderabad, Telangana}
+      {Intermediate -- Maths, Physics, Chemistry (MPC); \textbf{Percentage: 98.6\%}}{April 2022 -- May 2024}
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{CS Core Subjects}{: Data Structures, Database Management Systems (DBMS), Digital Logic Design, Data Analysis and Algorithms} \\
+     \textbf{Languages}{: Core Java, Structured Query Language (SQL), Python, C, C++ Basics, JavaScript (ES6+)} \\
+     \textbf{Web Technologies}{: React.js, Node.js basics, Express.js, EJS (Embedded JavaScript), HTML5, CSS3, REST APIs} \\
+     \textbf{Developer Tools}{: Git, GitHub, VS Code, PostgreSQL, Jupyter Notebook, Google Colaboratory, LaTeX, Terminal/Bash} \\
+     \textbf{Soft Skills}{: Cross-functional Teamwork, Growth Mindset, Inclusive Leadership, Analytical Thinking}
+    }}
+ \end{itemize}
+ \vspace{-12pt}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Academic Tutor -- IIT Foundation}{July 2025 -- Present}
+      {Brain Hub}{Hyderabad, Telangana}
+      \resumeItemListStart
+        \resumeItem{Tutored secondary school students preparing for the competitive JEE foundation curriculum in Mathematics, Physics, and Chemistry.}
+        \resumeItem{Deconstructed complex problem-solving methodologies and strengthened core conceptual understanding through structured practice sessions.}
+        \resumeItem{Monitored individual student performance analytics, designed custom assignment sets, and conducted targeted doubt-clearing workshops.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{Learning Management System} $|$ \emph{Node.js, Express.js, PostgreSQL, EJS, HTML/CSS, SQL}}{\href{https://github.com/hemkesh18/learning-management-system}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Built a full-stack Learning Management System supporting role-based access control (RBAC) for administrators, instructors, and students.}
+            \resumeItem{Implemented dynamic course creation, student enrollment management, and secure session authentication workflows.}
+            \resumeItem{Developed dynamic server-rendered UI pages using EJS templates seamlessly integrated with a Node.js and Express.js backend.}
+            \resumeItem{Designed and optimized relational schemas using PostgreSQL, ensuring efficient indexing for user credentials, course catalogs, and enrollments.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Personal Developer Portfolio} $|$ \emph{React.js, Tailwind CSS, Vite, JavaScript, Lucide Icons}}{\href{https://github.com/hemkesh18}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Architected a responsive Single Page Application with modular React components, smooth anchor navigation, and sub-350ms build times.}
+            \resumeItem{Engineered class-based dark and light theme switching with persistent local storage synchronization and CSS custom variants.}
+            \resumeItem{Integrated an interactive ATS-formatted resume preview modal and centralized dynamic profile configuration architecture.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Todo List Application} $|$ \emph{Node.js, Express.js, JavaScript, EJS, HTML/CSS, REST APIs}}{\href{https://github.com/hemkesh18/todo-list/tree/main/todo-app}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Developed a task management application enabling users to create, update, complete, and delete tasks through a responsive interface.}
+            \resumeItem{Built the modular frontend using HTML and Embedded JavaScript (EJS) components to provide a responsive user experience.}
+            \resumeItem{Implemented backend RESTful endpoints with Node.js and Express.js to maintain application state and business logic integrity.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%-----------LEADERSHIP & ACHIEVEMENTS-----------
+\section{Honors \& Leadership}
+    \resumeSubHeadingListStart
+      \resumeItem{\textbf{National Examination Merit}: Secured \textbf{98.6 Percentile} in JEE Mains Examination conducted across India.}
+      \resumeItem{\textbf{State Engineering Ranks}: Achieved \textbf{Rank 1689} in TS EAPCET and \textbf{Rank 2345} in AP EAPCET.}
+      \resumeItem{\textbf{Intra-College Sports}: Secured \textbf{Second Place} in the college-level carroms league tournament.}
+      \resumeItem{\textbf{Esports \& Teamwork}: Placed in \textbf{Third Position} in inter-college level Free Fire tournaments in Hyderabad as a squad of 4.}
+    \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}
