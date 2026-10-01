@@ -42,17 +42,17 @@ export default function Contact() {
     setErrorMessage('');
     setStatus('success');
 
-    // Prepare mailto link and trigger directly within user gesture
+    // Prepare Gmail Web compose link to open directly in browser without triggering Outlook
     const subject = encodeURIComponent(`Portfolio Inquiry from ${formState.name.trim()}`);
     const body = encodeURIComponent(
       `Hi ${personal.name},\n\n${formState.message.trim()}\n\nBest regards,\n${formState.name.trim()}\nEmail: ${formState.email.trim()}`
     );
-    const mailtoUrl = `mailto:${personal.socials.email}?subject=${subject}&body=${body}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personal.socials.email)}&su=${subject}&body=${body}`;
 
     try {
-      window.location.href = mailtoUrl;
+      window.open(gmailUrl, '_blank', 'noopener,noreferrer');
     } catch (err) {
-      // Browser handles mailto
+      // In case popup is blocked, window.open fails gracefully
     }
   };
 
@@ -142,12 +142,21 @@ export default function Contact() {
                 <div className="mb-4 p-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 text-xs space-y-2">
                   <div className="flex items-center gap-2 font-semibold">
                     <Check size={16} className="text-emerald-600 dark:text-emerald-400" />
-                    <span>Your message draft has been prepared!</span>
+                    <span>Your Gmail message draft is ready!</span>
                   </div>
                   <p className="text-[11px] text-emerald-800 dark:text-emerald-300 leading-relaxed">
-                    Your default email client has been launched with your message pre-filled to <strong>{personal.socials.email}</strong>.
+                    A Gmail compose tab has been opened with your message pre-filled to <strong>{personal.socials.email}</strong>.
                   </p>
                   <div className="pt-2 flex flex-wrap gap-2">
+                    <a
+                      href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personal.socials.email)}&su=${encodeURIComponent(`Portfolio Inquiry from ${formState.name.trim()}`)}&body=${encodeURIComponent(`Hi ${personal.name},\n\n${formState.message.trim()}\n\nBest regards,\n${formState.name.trim()}\nEmail: ${formState.email.trim()}`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-teal-700 hover:bg-teal-800 text-white transition-colors text-[11px] font-medium"
+                    >
+                      <ExternalLink size={12} />
+                      <span>Open Gmail Tab</span>
+                    </a>
                     <button
                       onClick={handleCopyEmail}
                       className="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-emerald-300 dark:border-emerald-700 text-emerald-800 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-colors text-[11px] font-medium"

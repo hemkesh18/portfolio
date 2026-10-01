@@ -24,6 +24,7 @@ export const portfolioData = {
       email: "hemkesh.c.18@gmail.com",
       github: "https://github.com/hemkesh18",
       linkedin: "https://www.linkedin.com/in/hemkesh-cuddapah-23a0033a1/",
+      leetcode: "https://leetcode.com/u/x35OkJfu7A/",
       resumePdf: "/Hemkesh_Resume.pdf",
     },
     lastUpdated: "October 2026",
@@ -32,8 +33,8 @@ export const portfolioData = {
   // Key Quick Metrics
   stats: [
     { label: "Current CGPA", value: "9.05", subtext: "CBIT Hyderabad" },
-    { label: "JEE Mains", value: "98.6 %ile", subtext: "National rank percentile" },
-    { label: "State Ranks", value: "1689", subtext: "TS EAPCET (AP: 2345)" },
+    { label: "JEE Mains", value: "98.6 %ile", subtext: "Top 1.4% Nationwide" },
+    { label: "Academic Tutoring", value: "10 Students", subtext: "JEE & CBSE (All 92%+)" },
     { label: "Preflight Backtest", value: "4/9 vs 1/9", subtext: "Repeat outage recall" },
   ],
 
@@ -311,9 +312,9 @@ export const portfolioData = {
   codingProfiles: [
     {
       platform: "LeetCode",
-      handle: "hemkesh18",
+      handle: "x35OkJfu7A",
       stats: "100+ Problems Solved",
-      url: "https://leetcode.com/u/hemkesh18/",
+      url: "https://leetcode.com/u/x35OkJfu7A/",
     },
   ],
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { FileText, ArrowRight, Mail, MapPin, CheckCircle, ShieldCheck } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from './Icons';
+import { FileText, ArrowRight, Mail, MapPin, CheckCircle, ShieldCheck, BookOpen } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, LeetcodeIcon } from './Icons';
 
 export default function Hero({ onOpenResume }) {
   const { personal, stats } = portfolioData;
@@ -40,15 +40,24 @@ export default function Hero({ onOpenResume }) {
             </p>
           </div>
 
-          {/* Academic & Location Metadata */}
-          <div className="mt-4 flex flex-wrap items-center gap-y-2 gap-x-4 text-xs font-medium text-slate-500 dark:text-slate-400">
+          {/* Academic, Tutoring & Location Metadata */}
+          <div className="mt-4 flex flex-wrap items-center gap-y-2 gap-x-3 text-xs font-medium text-slate-600 dark:text-slate-400">
             <span className="flex items-center gap-1.5">
               <MapPin size={13} className="text-slate-400" />
               {personal.location}
             </span>
             <span>•</span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle size={13} className="text-teal-600 dark:text-teal-400" />
+            <span className="flex items-center gap-1.5 font-semibold text-teal-700 dark:text-teal-400">
+              <CheckCircle size={13} />
+              98.6%ile JEE Mains
+            </span>
+            <span>•</span>
+            <span className="flex items-center gap-1.5 font-medium text-slate-700 dark:text-slate-300">
+              <BookOpen size={13} className="text-teal-600 dark:text-teal-400" />
+              Academic Tutor at Brain Hub
+            </span>
+            <span>•</span>
+            <span>
               {personal.yearStatus} (CGPA: {personal.cgpa})
             </span>
           </div>
@@ -105,6 +114,18 @@ export default function Hero({ onOpenResume }) {
             >
               <LinkedinIcon size={18} />
             </a>
+
+            {personal.socials.leetcode && (
+              <a
+                href={personal.socials.leetcode}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 rounded-md text-slate-600 hover:text-amber-600 dark:text-slate-400 dark:hover:text-amber-400 transition-colors"
+                title="LeetCode Profile"
+              >
+                <LeetcodeIcon size={18} />
+              </a>
+            )}
 
             <a
               href={`mailto:${personal.socials.email}`}

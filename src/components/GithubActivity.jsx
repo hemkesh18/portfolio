@@ -3,7 +3,7 @@ import { Star, GitFork, BookMarked, ExternalLink } from 'lucide-react';
 import { GithubIcon } from './Icons';
 
 // Repositories explicitly excluded by user request
-const EXCLUDED_REPOS = ['hydradb', 'rocketride', 'rocketride-server', 'lcode'];
+const EXCLUDED_REPOS = ['hydradb', 'rocketride', 'rocketride-server', 'lcode', 'leethub-2.0', 'leethub'];
 
 // High-quality fallback descriptions for public repos with empty descriptions
 const REPO_DESCRIPTIONS = {
@@ -11,7 +11,6 @@ const REPO_DESCRIPTIONS = {
   portfolio: 'Personal developer portfolio and ATS resume suite built with React 19, Vite, and Tailwind CSS.',
   'learning-management-system': 'Full-stack learning management platform supporting role-based access control and PostgreSQL schemas.',
   'todo-list': 'Full-stack task management web application built with Node.js, Express.js, and modular EJS templates.',
-  'LeetHub-2.0': 'Chrome extension automatically syncing verified LeetCode problem solutions to GitHub.',
 };
 
 const STATIC_FALLBACK_REPOS = [
@@ -51,18 +50,9 @@ const STATIC_FALLBACK_REPOS = [
     language: 'JavaScript',
     updated_at: '2025-07-15T10:00:00Z',
   },
-  {
-    name: 'LeetHub-2.0',
-    description: REPO_DESCRIPTIONS['LeetHub-2.0'],
-    html_url: 'https://github.com/hemkesh18/LeetHub-2.0',
-    stargazers_count: 0,
-    forks_count: 0,
-    language: 'JavaScript',
-    updated_at: '2025-05-10T10:00:00Z',
-  },
 ];
 
-const CACHE_KEY = 'hemkesh_github_repos_cache_v3';
+const CACHE_KEY = 'hemkesh_github_repos_cache_v5';
 const CACHE_EXPIRY_MS = 60 * 60 * 1000; // 1 hour
 
 export default function GithubActivity() {

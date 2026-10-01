@@ -1,7 +1,7 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
 import { ArrowUp } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from './Icons';
+import { GithubIcon, LinkedinIcon, LeetcodeIcon } from './Icons';
 
 export default function Footer() {
   const { personal } = portfolioData;
@@ -42,6 +42,18 @@ export default function Footer() {
           >
             <LinkedinIcon size={16} />
           </a>
+
+          {personal.socials.leetcode && (
+            <a
+              href={personal.socials.leetcode}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+              title="LeetCode Profile"
+            >
+              <LeetcodeIcon size={16} />
+            </a>
+          )}
 
           <button
             onClick={scrollToTop}
