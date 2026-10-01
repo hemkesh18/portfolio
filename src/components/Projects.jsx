@@ -104,19 +104,27 @@ export default function Projects() {
                   {project.subtitle}
                 </p>
 
+                {/* Explicit Tech Stack Line */}
+                {project.techStackLine && (
+                  <div className="mt-2 text-xs font-mono text-slate-700 dark:text-slate-300 flex items-baseline gap-1.5">
+                    <span className="font-semibold text-slate-900 dark:text-white font-sans text-xs">Tech stack:</span>
+                    <span className="text-teal-700 dark:text-teal-400 font-semibold">{project.techStackLine}</span>
+                  </div>
+                )}
+
                 {/* Summary */}
                 <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {project.summary}
                 </p>
 
-                {/* Key Technical Decision Line */}
-                {project.keyTechnicalDecision && (
+                {/* Concrete Feature & Design Decision */}
+                {(project.concreteDecision || project.keyTechnicalDecision) && (
                   <div className="mt-4 p-3 rounded bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 block mb-0.5">
-                      Key Technical Decision
+                      Concrete Feature & Design Decision
                     </span>
                     <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-relaxed">
-                      {project.keyTechnicalDecision}
+                      {project.concreteDecision || project.keyTechnicalDecision}
                     </p>
                   </div>
                 )}

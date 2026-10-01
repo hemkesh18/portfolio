@@ -155,14 +155,23 @@ export default function PreflightSection() {
         </div>
 
         {/* How It Works Explainer Callout */}
-        <div className="mt-8 p-4 rounded-lg bg-teal-50/70 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/60 text-xs sm:text-sm text-slate-700 dark:text-slate-300 space-y-1.5">
+        <div className="mt-8 p-4 rounded-lg bg-teal-50/70 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/60 text-xs sm:text-sm text-slate-700 dark:text-slate-300 space-y-2">
           <div className="font-bold text-teal-900 dark:text-teal-200 flex items-center gap-2">
             <Cpu size={16} className="text-teal-700 dark:text-teal-400" />
-            <span>How Preflight Works: Memory Storage & Release Blocking Decisions</span>
+            <span>How It Works</span>
           </div>
-          <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
-            {preflight.howItWorks}
-          </p>
+          <div className="space-y-1.5 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+            {Array.isArray(preflight.howItWorks) ? (
+              preflight.howItWorks.map((line, idx) => (
+                <p key={idx} className="flex items-start gap-2">
+                  <span className="font-semibold text-teal-800 dark:text-teal-300 shrink-0">{idx + 1}.</span>
+                  <span>{line}</span>
+                </p>
+              ))
+            ) : (
+              <p>{preflight.howItWorks}</p>
+            )}
+          </div>
         </div>
 
         {/* Simulated Benchmark Results: Before / After Comparison */}
@@ -179,7 +188,7 @@ export default function PreflightSection() {
                 {preflight.results.headline}
               </p>
               <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
-                {preflight.setupNote}
+                <span className="font-semibold text-slate-800 dark:text-slate-200">Benchmark setup:</span> {preflight.setupNote}
               </p>
             </div>
             <span className="text-[11px] text-slate-400 font-mono">

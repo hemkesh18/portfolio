@@ -54,9 +54,13 @@ describe('Portfolio Data Integrity', () => {
     }
   });
 
-  test('skills are cleanly partitioned into Strong, Working, Familiar', () => {
+  test('skills are cleanly partitioned into Strong and Familiar', () => {
     const groups = portfolioData.skills.map((s) => s.group);
-    assert.deepEqual(groups, ['Strong', 'Working', 'Familiar']);
+    assert.deepEqual(groups, ['Strong', 'Familiar']);
+    const strongSkills = portfolioData.skills.find((s) => s.group === 'Strong').items;
+    assert.deepEqual(strongSkills, ['Java', 'Python', 'JavaScript', 'SQL', 'React', 'Node/Express', 'PostgreSQL']);
+    const familiarSkills = portfolioData.skills.find((s) => s.group === 'Familiar').items;
+    assert.deepEqual(familiarSkills, ['C', 'C++']);
   });
 
   test('zero em dashes or en dashes across portfolio source text', () => {

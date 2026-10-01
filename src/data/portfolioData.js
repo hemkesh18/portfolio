@@ -49,45 +49,27 @@ export const portfolioData = {
       "My primary project is Preflight, an autonomous release safety gate that connects persistent memory to CI/CD pipelines to catch recurring outage patterns before production. Outside software engineering, I teach competitive Mathematics, Physics, and Chemistry to secondary school students at Brain Hub.",
   },
 
-  // Technical Skills Regrouped by Strength: Strong / Working / Familiar (No generic tools like VS Code)
+  // Technical Skills Regrouped by Strength: Strong and Familiar (No generic tools)
   skills: [
     {
       group: "Strong",
-      description: "Technologies I build production systems with daily and explain in depth",
+      description: "Languages, frontend, and backend systems used to build end-to-end applications",
       items: [
         "Java",
         "Python",
         "JavaScript",
         "SQL",
         "React",
-        "Node / Express",
+        "Node/Express",
         "PostgreSQL",
-        "REST APIs",
-        "Data Structures & Algorithms",
-      ],
-    },
-    {
-      group: "Working",
-      description: "Frameworks, databases, and APIs used in active projects and hackathon systems",
-      items: [
-        "FastAPI",
-        "Tailwind CSS",
-        "Git & GitHub",
-        "Flutter",
-        "EJS",
-        "Groq LLM APIs",
-        "Vectorize Hindsight",
-        "DBMS",
       ],
     },
     {
       group: "Familiar",
-      description: "Languages and libraries explored through prototypes and foundational coursework",
+      description: "Systems programming languages explored through coursework and prototypes",
       items: [
         "C",
         "C++",
-        "PyTorch / ONNX",
-        "Digital Logic Design",
       ],
     },
   ],
@@ -102,9 +84,11 @@ export const portfolioData = {
       "An AI agent at the CI/CD gate that recalls past deployments, outages, and runbooks from Vectorize Hindsight persistent memory and returns PASS, WARN, or BLOCK with cited evidence.",
     benchmarkType: "Simulated Benchmark",
     setupNote:
-      "Setup: 150 simulated chronological deployments with 9 repeat-outage incidents evaluated under two conditions: persistent memory enabled vs baseline without memory.",
-    howItWorks:
-      "How it works: Vectorize Hindsight stores historical deployment manifests, failure post-mortems, and mitigation runbooks. At deploy time, Preflight semantically queries Hindsight using the incoming release manifest, computes a composite risk score (0.00 to 1.00), and halts the CI/CD pipeline (exit code 1) if the score reaches 0.60+ or matches a known critical failure pattern.",
+      "150 simulated deployments, 9 repeat-outage incidents, comparing memory-enabled Preflight against a stateless baseline without memory.",
+    howItWorks: [
+      "Vectorize Hindsight memory stores historical deployment manifests, architectural diffs, and incident post-mortems with remediation runbooks.",
+      "At deploy time, Preflight semantically compares the proposed release against stored incident patterns and blocks the release (exit code 1) if the risk score exceeds 0.60 or matches a known repeat-outage scenario.",
+    ],
     problem:
       "Release pipelines lose institutional memory. When on-call engineers leave or incident post-mortems stay buried in static documentation, known failure patterns repeat silently. Standard CI/CD checks evaluate code syntax and unit tests, but have zero recall of how similar configuration or dependency changes behaved in past production incidents.",
     approach:
@@ -260,17 +244,17 @@ export const portfolioData = {
       date: "November 2025",
       summary:
         "A full-stack learning management platform supporting role-based access for administrators, instructors, and students, with dynamic course publishing and relational enrollment tracking.",
-      techStackLine: "Node.js, Express.js, PostgreSQL, EJS, SQL",
+      techStackLine: "Node, Express, PostgreSQL, EJS",
       concreteDecision:
-        "Engineered role-based access control (RBAC) separating administrative, instructor, and student privileges, backed by normalized PostgreSQL schemas with explicit indexes on user credentials and course enrollments to prevent N+1 query degradation during peak enrollment windows.",
+        "Engineered role-based access control (RBAC) separating administrative, instructor, and student privileges, with indexed PostgreSQL foreign keys preventing query bottlenecks during concurrent course enrollments.",
       bulletPoints: [
         "Built full-stack role-based authorization guarding administrative dashboards, instructor course creation, and student enrollment routes.",
         "Engineered server-rendered dynamic pages using modular EJS templates integrated with Express session validation.",
         "Designed and normalized PostgreSQL schemas with explicit indexes on user credentials and course enrollments.",
       ],
       keyTechnicalDecision:
-        "Designed relational PostgreSQL schemas with explicit indexes on user credentials, courses, and enrollments to prevent N+1 query degradation during peak enrollment windows.",
-      tech: ["Node.js", "Express.js", "PostgreSQL", "EJS", "SQL"],
+        "Designed relational PostgreSQL schemas with explicit indexes on user credentials, courses, and enrollments to prevent query slowdowns during peak enrollment windows.",
+      tech: ["Node", "Express", "PostgreSQL", "EJS"],
       github: "https://github.com/hemkesh18/learning-management-system",
       liveDemo: null,
       metrics: "PostgreSQL RBAC & Indexed Schemas",
@@ -284,9 +268,9 @@ export const portfolioData = {
       date: "July 2025",
       summary:
         "A responsive task management application enabling users to create, update, complete, and delete tasks with seamless client-server state synchronization.",
-      techStackLine: "Node.js, Express.js, EJS, REST APIs",
+      techStackLine: "Node, Express, EJS, REST APIs",
       concreteDecision:
-        "Engineered stateful RESTful CRUD endpoints with server-side validation and modular EJS component partials (header, form, list) ensuring reliable state synchronization between client and server without full-page reloads.",
+        "Engineered stateful RESTful CRUD endpoints with server-side payload validation and modular EJS component partials (header, form, list) ensuring clean separation of concerns and reliable state synchronization.",
       bulletPoints: [
         "Built RESTful endpoints handling complete task lifecycles (creation, status update, inline editing, and deletion).",
         "Structured frontend with modular EJS partials to maintain clean separation of concerns and fast server rendering.",
@@ -294,34 +278,34 @@ export const portfolioData = {
       ],
       keyTechnicalDecision:
         "Engineered RESTful endpoints with input validation and modular EJS partials ensuring consistent state synchronization and clean separation of concerns.",
-      tech: ["Node.js", "Express.js", "EJS", "REST APIs"],
+      tech: ["Node", "Express", "EJS", "REST APIs"],
       github: "https://github.com/hemkesh18/todo-list",
       liveDemo: null,
       metrics: "RESTful Endpoints & Modular EJS",
     },
   ],
 
-  // Hackathons and Competitions: Ordered by technical impact with concrete outcome & stack
+  // Hackathons and Competitions: Plain wording ("Built...") with verified outcomes
   hackathons: [
     {
       id: "sih-2026",
       name: "Smart India Hackathon (SIH) 2026",
-      role: "Mobile Client & ML Pipeline Developer",
+      role: "Built the Flutter client and connected the machine learning inference backend",
       stack: "Flutter, Dart, Python, FastAPI, PostgreSQL",
       built: "Built cross-platform Flutter mobile client connected to backend PostgreSQL schemas and ML model inference endpoints for live automated telemetry.",
-      outcome: "Collegiate Internal Round Selection (Top college submissions)",
+      outcome: "Selected in the college-level round.",
       status: "verified",
-      statusBadge: "Internal Round Selection",
+      statusBadge: "Selected (College Round)",
     },
     {
       id: "hack-with-hyderabad",
       name: "Hack with Hyderabad 3.0",
-      role: "Full-Stack Developer & System Architect",
+      role: "Built the full-stack web application, REST endpoints, and database schema",
       stack: "React, Node.js, Express.js, PostgreSQL, Tailwind CSS",
-      built: "Engineered full-stack responsive web client, REST API endpoints, and relational database schemas under a 24-hour sprint.",
-      outcome: "Completed full working prototype; Received Verified Participation Certificate",
+      built: "Built full-stack responsive web client, REST API endpoints, and relational database schemas under a 24-hour sprint.",
+      outcome: "Built working prototype within 24 hours; verified participation.",
       status: "verified",
-      statusBadge: "Verified Certificate",
+      statusBadge: "Working Prototype",
     },
   ],
 

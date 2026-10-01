@@ -46,8 +46,8 @@ export default function Skills() {
           </p>
         </div>
 
-        {/* 3 Columns: Strong, Working, Familiar */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* 2 Columns: Strong and Familiar */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skills.map((group, idx) => {
             const style = getGroupBadge(group.group);
             return (
