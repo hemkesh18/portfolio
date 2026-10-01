@@ -158,7 +158,7 @@ export const portfolioData = {
       "Synthetic operational history and small sample size (N=9 repeat incidents across planted patterns). These findings demonstrate the mechanism and baseline comparison, not a production claim.",
     links: {
       github: "https://github.com/hemkesh18/preflight",
-      liveDemo: "[TODO: Preflight live demo URL]",
+      liveDemo: "https://preflight-kw3s.vercel.app/",
       demoVideo: "[TODO: Preflight demo video URL]",
     },
     simulatorPresets: [

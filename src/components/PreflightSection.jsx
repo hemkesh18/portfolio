@@ -48,10 +48,22 @@ export default function PreflightSection() {
               <span>GitHub Repo</span>
             </a>
 
-            <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
-              <ExternalLink size={13} />
-              <span>Live: {preflight.links.liveDemo}</span>
-            </span>
+            {preflight.links.liveDemo && !preflight.links.liveDemo.includes('[TODO') ? (
+              <a
+                href={preflight.links.liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold bg-teal-700 hover:bg-teal-800 text-white shadow-xs transition-colors"
+              >
+                <ExternalLink size={13} />
+                <span>Live Demo</span>
+              </a>
+            ) : (
+              <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
+                <ExternalLink size={13} />
+                <span>Live: {preflight.links.liveDemo}</span>
+              </span>
+            )}
 
             <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
               <Video size={13} />
