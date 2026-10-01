@@ -1,240 +1,409 @@
 /**
  * PORTFOLIO CONFIGURATION DATA - CUDDAPAH HEMKESH
  * -------------------------------------------------------------
- * Updated with exact resume credentials:
- * CBIT Hyderabad, 9.05 CGPA, 98.6% Intermediate,
- * IIT Foundation Tutor at Brain Hub, LMS & Todo List Projects,
- * High Ranks in JEE Mains & EAPCET.
+ * Grounded strictly in verified credentials, Preflight repo artifacts,
+ * and user-supplied data. No invented metrics or links.
  */
 
 export const portfolioData = {
-  // Personal & Header Information
   personal: {
     name: "Cuddapah Hemkesh",
     badge: "B.E. CSE @ CBIT",
-    title: "Bachelor of Engineering in Computer Science and Engineering",
-    tagline: "CSE Undergrad at CBIT Hyderabad | Full-Stack Developer & Academic Tutor",
-    shortBio:
-      "Computer Science Engineering student at Chaitanya Bharathi Institute of Technology (CGPA: 9.05) with expertise in Data Structures, Database Systems (PostgreSQL/SQL), Full-Stack Web Development (Node.js/Express), and Core Java. Academic Tutor for IIT Foundation at Brain Hub.",
+    role: "Software engineer (full-stack + ML)",
+    tagline: "I build AI-backed systems end to end.",
+    proofLine: "Proven by Preflight, an autonomous release-safety gate with persistent memory.",
+    yearStatus: "[CONFIRM: third year B.E. CSE, CBIT]",
+    college: "Chaitanya Bharathi Institute of Technology (CBIT), Hyderabad",
+    cgpa: "9.05 / 10.0",
     location: "Hyderabad, Telangana",
     status: {
-      text: "Open to Software Engineering & Full-Stack Internships",
+      text: "Seeking Software Engineering Internships",
       available: true,
     },
-    // Links to your profiles
     socials: {
       email: "hemkesh.c.18@gmail.com",
       github: "https://github.com/hemkesh18",
       linkedin: "https://www.linkedin.com/in/hemkesh-cuddapah-23a0033a1/",
-      leetcode: "https://github.com/hemkesh18", // fallback to github or leetcode handle
-      resumePdf: "/sample-resume.pdf",
+      resumePdf: "/Hemkesh_Resume.pdf",
     },
+    lastUpdated: "October 2026",
   },
 
-  // Key Quick Metrics for Resume/Portfolio
+  // Key Quick Metrics
   stats: [
     { label: "Current CGPA", value: "9.05", subtext: "CBIT Hyderabad" },
-    { label: "Intermediate", value: "98.6%", subtext: "Sri Chaitanya Jr. College" },
-    { label: "JEE Mains", value: "98.6 %ile", subtext: "National Level Exam" },
-    { label: "TS EAPCET", value: "Rank 1689", subtext: "AP Rank: 2345" },
+    { label: "JEE Mains", value: "98.6 %ile", subtext: "National rank percentile" },
+    { label: "State Ranks", value: "1689", subtext: "TS EAPCET (AP: 2345)" },
+    { label: "Preflight Backtest", value: "4/9 vs 1/9", subtext: "Repeat outage recall" },
   ],
 
   // About Me Section
   about: {
     overview:
-      "I am a Computer Science and Engineering undergraduate at Chaitanya Bharathi Institute of Technology (CBIT), Hyderabad, maintaining a strong academic standing with a 9.05 CGPA. My focus spans core computer science concepts, database architectures, algorithmic problem solving, and modern web application development.",
-    passion:
-      "I believe in blending conceptual depth with practical engineering. I build robust full-stack applications with Node.js, Express, PostgreSQL, and modular templating. Concurrently, as an Academic Tutor for IIT Foundation at Brain Hub, I guide aspiring engineering students in JEE Mathematics, Physics, and Chemistry problem-solving techniques.",
-    focusAreas: [
-      "CS Core Subjects (Data Structures, Database Management Systems, Digital Logic Design, Data Analysis and Algorithms)",
-      "Programming Languages (Core Java, SQL, Python, C, C++ Basics)",
-      "Full-Stack Web Engineering (HTML, CSS, JavaScript, Node.js, Express.js, EJS, RESTful APIs)",
-      "Databases & Modeling (PostgreSQL, Relational Schemas, Indexing, CRUD)",
-      "Engineering Tools (Git, GitHub, VS Code, Jupyter Notebook, Google Colab, LaTeX, Terminal)",
-      "Analytical Thinking & Inclusive Leadership (Cross-functional Teamwork, Growth Mindset)",
-    ],
+      "I am a Computer Science Engineering student at Chaitanya Bharathi Institute of Technology (CBIT), Hyderabad, maintaining a 9.05 CGPA. I build AI-backed systems end to end, focusing on persistent memory architectures, backend reliability, and full-stack engineering.",
+    focus:
+      "My primary project is Preflight, an autonomous release safety gate that connects persistent memory to CI/CD pipelines to catch recurring outage patterns before production. Outside software engineering, I teach competitive Mathematics, Physics, and Chemistry problem solving to secondary school students at Brain Hub.",
   },
 
-  // Technical Skills Categorized for Recruiters
+  // Technical Skills Regrouped: Strong / Working / Familiar
   skills: [
     {
-      category: "CS Core Subjects",
+      group: "Strong",
+      description: "Technologies I build with daily and can explain in depth",
       items: [
-        { name: "Data Structures", level: "Core" },
-        { name: "Database Management Systems", level: "Core" },
-        { name: "Data Analysis and Algorithms", level: "Core" },
-        { name: "Digital Logic Design", level: "Core" },
+        "Core Java",
+        "Python",
+        "JavaScript (ES6+)",
+        "PostgreSQL / SQL",
+        "Node.js",
+        "Express.js",
+        "React.js",
+        "REST APIs",
+        "Data Structures & Algorithms",
       ],
     },
     {
-      category: "Programming Languages",
+      group: "Working",
+      description: "Tools and frameworks used in active projects and coursework",
       items: [
-        { name: "Core Java", level: "Proficient" },
-        { name: "Structured Query Language (SQL)", level: "Proficient" },
-        { name: "Python", level: "Proficient" },
-        { name: "C", level: "Proficient" },
-        { name: "C++ Basics", level: "Intermediate" },
-        { name: "JavaScript (ES6+)", level: "Proficient" },
+        "FastAPI",
+        "Tailwind CSS",
+        "Git / GitHub",
+        "DBMS",
+        "EJS",
+        "[TODO: confirm Docker]",
+        "[TODO: confirm CI/CD & GitHub Actions]",
+        "[TODO: confirm pytest / unit testing]",
       ],
     },
     {
-      category: "Web Technologies",
+      group: "Familiar",
+      description: "Libraries, runtime engines, and concepts explored through prototypes",
       items: [
-        { name: "HTML5", level: "Advanced" },
-        { name: "CSS3", level: "Advanced" },
-        { name: "JavaScript", level: "Proficient" },
-        { name: "Node.js Basics", level: "Proficient" },
-        { name: "Express.js", level: "Proficient" },
-        { name: "EJS (Embedded JS)", level: "Proficient" },
-        { name: "RESTful APIs", level: "Proficient" },
-      ],
-    },
-    {
-      category: "Developer Tools",
-      items: [
-        { name: "Git", level: "Proficient" },
-        { name: "GitHub", level: "Proficient" },
-        { name: "VS Code", level: "Advanced" },
-        { name: "PostgreSQL", level: "Proficient" },
-        { name: "Jupyter Notebook", level: "Proficient" },
-        { name: "Google Colaboratory", level: "Proficient" },
-        { name: "Terminal / Bash", level: "Proficient" },
-        { name: "LaTeX", level: "Proficient" },
-      ],
-    },
-    {
-      category: "Soft Skills & Leadership",
-      items: [
-        { name: "Cross-Functional Teamwork", level: "Active" },
-        { name: "Growth Mindset", level: "Core" },
-        { name: "Inclusive Leadership", level: "Active" },
-        { name: "Analytical Thinking", level: "Core" },
+        "C",
+        "C++ Basics",
+        "Vectorize Hindsight",
+        "PyTorch / ONNX",
+        "Groq LLM APIs",
+        "LaTeX",
+        "Jupyter Notebook",
+        "Google Colab",
       ],
     },
   ],
 
-  // Projects Directly from Resume
+  // Flagship Project: Preflight
+  preflight: {
+    id: "preflight",
+    title: "Preflight",
+    tagline: "Autonomous Release Safety Gate with Persistent Memory",
+    scenario: "Built for simulated fintech Kestrel Pay",
+    summary:
+      "An AI agent at the CI/CD gate that recalls past deployments, outages, and runbooks from Vectorize Hindsight persistent memory and returns PASS, WARN, or BLOCK with cited evidence.",
+    problem:
+      "Release pipelines lose institutional memory. When on-call engineers leave or incident post-mortems stay buried in static documentation, known failure patterns repeat silently. Standard CI/CD checks evaluate code syntax and unit tests, but have zero recall of how similar configuration or dependency changes behaved in past production incidents.",
+    approach:
+      "Preflight intercepts deployment manifests at the CI/CD gate before production rollout. The agent queries Vectorize Hindsight persistent memory using the deployment context as a semantic anchor, retrieves matching historical outages and verified mitigation runbooks, and feeds this grounded context to a Groq open-weights LLM. The system produces a risk classification with verifiable memory IDs, enforces deterministic score clamping, and assigns an automated gate action.",
+    stack: [
+      "Python 3.11",
+      "FastAPI",
+      "Vectorize Hindsight",
+      "Groq LLMs",
+      "React 18",
+      "Vite",
+      "Tailwind CSS",
+      "Recharts",
+      "pytest",
+      "GitHub Actions",
+    ],
+    thresholds: [
+      { classification: "LOW", range: "0.00 to 0.34", action: "PASS", exitCode: 0, effect: "Automated pass-through. Release proceeds." },
+      { classification: "MEDIUM", range: "0.35 to 0.59", action: "WARN", exitCode: 0, effect: "Advisory warning. Publishes risk summary and checklists." },
+      { classification: "HIGH", range: "0.60 to 1.00", action: "BLOCK", exitCode: 1, effect: "Halts release. Requires on-call review and runbook remediation." },
+    ],
+    results: {
+      headline: "Backtest on 150 simulated deployments (chronological replay)",
+      comparison: [
+        { metric: "Repeat incidents flagged HIGH", memoryOn: "4 / 9 (44.4%)", memoryOff: "1 / 9 (11.1%)", note: "Memory quadrupled recall of recurring failure patterns" },
+        { metric: "False alarms on healthy releases", memoryOn: "5 / 111 (4.5%)", memoryOff: "5 / 111 (4.5%)", note: "Identical false alarm rate; zero added noise" },
+        { metric: "Planted decoy deploys flagged HIGH", memoryOn: "1 / 11", memoryOff: "0 / 11", note: "Safe routine changes correctly passed" },
+        { metric: "Safe pattern-matches flagged HIGH", memoryOn: "1 / 2", memoryOff: "0 / 2", note: "Canary overrides flagged as precaution" },
+        { metric: "CI build failures flagged HIGH", memoryOn: "2 / 22", memoryOff: "3 / 22", note: "Evaluated before production stage" },
+      ],
+      confusionMatrix: {
+        note: "Evaluated across 128 production rows (17 incidents + 111 healthy releases; 22 pre-deploy build failures excluded)",
+        memoryOn: { tp: 8, fp: 11, fn: 9, tn: 100, precision: "42.1%", recall: "47.1%", f1: "0.444" },
+        memoryOff: { tp: 9, fp: 16, fn: 8, tn: 95, precision: "36.0%", recall: "52.9%", f1: "0.429" },
+      },
+    },
+    engineeringDecisions: [
+      {
+        title: "Query-anchored recall to prevent time leakage",
+        detail: "Anchors Hindsight memory queries to semantic deployment content rather than timestamp windows, guaranteeing that backtest evaluations never recall future incidents.",
+      },
+      {
+        title: "Hallucinated citation stripping",
+        detail: "Validates every memory ID cited by the LLM against the set of IDs actually returned by Hindsight recall. Any invented IDs are stripped before returning the gate verdict.",
+      },
+      {
+        title: "Deterministic score clamping",
+        detail: "If the qualitative risk classification contradicts the numeric score (for example, HIGH with a score below 0.60), the score is clamped to 0.75 so labels and metrics never conflict.",
+      },
+      {
+        title: "Invariant pytest test suite",
+        detail: "Comprehensive test suite covering temporal leakage prevention, citation validation, boundary clamping, idempotency, and all FastAPI endpoints.",
+      },
+    ],
+    limitations:
+      "Synthetic operational history and small sample size (N=9 repeat incidents across planted patterns). These findings demonstrate the mechanism and baseline comparison, not a production claim.",
+    links: {
+      github: "https://github.com/hemkesh18/preflight",
+      liveDemo: "[TODO: Preflight live demo URL]",
+      demoVideo: "[TODO: Preflight demo video URL]",
+    },
+    simulatorPresets: [
+      {
+        id: "dep-164",
+        service: "ledger-service",
+        changeType: "migration",
+        pattern: "P2: Column Drop Schema Migration",
+        title: "Dropping legacy_settlement_id column",
+        author: "infra-team",
+        decision: "BLOCK",
+        riskScore: 0.90,
+        riskLabel: "HIGH",
+        exitCode: 1,
+        reasoning: "Dropping legacy_settlement_id column mirrors prior migration dep-120 that caused severe merchant transaction search downtime and Kafka DLQ buildup.",
+        runbook: "RB-DB-02: Hotfix migration to restore dropped columns as generated columns and reset Kafka consumer offsets.",
+        evidenceIds: ["09470a2c-b8fe-4325-ac63-9f6b723f9ebf", "92b6ac59-5a16-4fa4-988d-ea9ef21c3117"],
+        memoryOffVerdict: "WARN (Risk: 0.55, Exit: 0) - Missed the repeat outage pattern!",
+      },
+      {
+        id: "dep-219",
+        service: "auth-service",
+        changeType: "dependency-bump",
+        pattern: "P3: PyJWT Upgrade Incompatibility",
+        title: "Bump pyjwt from 2.8.0 to 2.10.1",
+        author: "sec-team",
+        decision: "BLOCK",
+        riskScore: 0.90,
+        riskLabel: "HIGH",
+        exitCode: 1,
+        reasoning: "Dependency bump to pyjwt 2.10.1 previously caused authentication token rejections due to strict asymmetric key formatting and zero clock skew leeway.",
+        runbook: "RB-SEC-09: Rollback pyjwt to 2.8.0 and configure jwt.decode leeway to 10s.",
+        evidenceIds: ["948f0c1d-345b-4657-a3fd-14d56ea7f83f", "b74c1c5d-c803-4abf-b826-ca94ced70750"],
+        memoryOffVerdict: "WARN (Risk: 0.30, Exit: 0) - Missed the breaking dependency change!",
+      },
+      {
+        id: "dep-131",
+        service: "payments-api",
+        changeType: "config",
+        pattern: "P1: Friday Connection Pool Tuning",
+        title: "Reduce pool_max_connections from 55 to 18",
+        author: "backend-core",
+        decision: "WARN",
+        riskScore: 0.45,
+        riskLabel: "MEDIUM",
+        exitCode: 0,
+        reasoning: "Reducing pool_max_connections while increasing keepalive timeout risks starving DB connections under peak Friday traffic. Warning issued with mitigation checklist.",
+        runbook: "RB-PAY-04: Revert pool_max_connections to stable baseline (50+) and perform rolling pod restart.",
+        evidenceIds: ["2b7cb407-19a3-4cf1-aecb-58bf0af326e5", "df5b9752-94a2-4569-9208-b9ca04772b98"],
+        memoryOffVerdict: "BLOCK (Risk: 0.72, Exit: 1) - Blanket block without operational context",
+      },
+      {
+        id: "dep-165",
+        service: "reporting-service",
+        changeType: "config",
+        pattern: "Routine Config Update",
+        title: "Update reporting aggregation window to 15m",
+        author: "analytics-team",
+        decision: "PASS",
+        riskScore: 0.10,
+        riskLabel: "LOW",
+        exitCode: 0,
+        reasoning: "Routine configuration update with zero matching incident precedents across historical runs. All sanity checks satisfied.",
+        runbook: "Standard deployment checklist. No active incident precedents.",
+        evidenceIds: ["31022606-c96a-4840-9dd4-a20a99545546", "ceca682d-51a6-412c-ac05-d52ff704eb35"],
+        memoryOffVerdict: "PASS (Risk: 0.20, Exit: 0) - Both arms correctly passed",
+      },
+      {
+        id: "dep-223",
+        service: "payments-api",
+        changeType: "config",
+        pattern: "P1: Safe Canary Override",
+        title: "Payments config update with 5% canary routing",
+        author: "release-eng",
+        decision: "BLOCK",
+        riskScore: 0.85,
+        riskLabel: "HIGH",
+        exitCode: 1,
+        reasoning: "P1 failure signature detected. Flagged as precautionary override for on-call signoff despite canary ratio.",
+        runbook: "RB-PAY-04: Ensure canary traffic monitoring and automated rollback alarms are armed.",
+        evidenceIds: ["cc472507-8ce1-4146-b750-977a2030b48f"],
+        memoryOffVerdict: "WARN (Risk: 0.45, Exit: 0)",
+      },
+    ],
+  },
+
+  // Secondary and Placeholder Projects
   projects: [
     {
       id: "learning-management-system",
       title: "Learning Management System",
-      subtitle: "Full-Stack Educational Platform",
+      subtitle: "Full-Stack Educational Platform with Role-Based Access Control",
       category: "Full-Stack Web",
-      badge: "Featured Project",
+      badge: "Core Project",
       date: "November 2025",
       summary:
-        "A full-stack Learning Management System supporting role-based access for administrators, instructors, and students, streamlining digital course creation, enrollments, and secure user authentication.",
+        "A full-stack learning management platform supporting role-based access for administrators, instructors, and students, with dynamic course publishing and relational enrollment tracking.",
       bulletPoints: [
-        "Built a full-stack Learning Management System supporting role-based access for administrators, instructors, and students.",
-        "Implemented course creation, enrollment management, and user authentication to streamline digital learning workflows.",
-        "Developed dynamic server-rendered pages using EJS templates integrated with a Node.js and Express.js backend.",
-        "Designed and managed relational data models using PostgreSQL, storing user credentials, course information, and enrollment data.",
+        "Built full-stack role-based access control (RBAC) separating administrative, instructor, and student permissions.",
+        "Engineered course publishing workflows and student enrollments using server-rendered EJS templates on Express.js.",
+        "Designed and normalized PostgreSQL schemas with explicit indexes on user credentials and course enrollments.",
       ],
+      keyTechnicalDecision:
+        "Designed relational PostgreSQL schemas with explicit indexes on user credentials, courses, and enrollments to prevent N+1 query degradation during peak enrollment windows.",
       tech: ["Node.js", "Express.js", "PostgreSQL", "EJS", "JavaScript", "HTML/CSS", "SQL"],
       github: "https://github.com/hemkesh18/learning-management-system",
-      liveDemo: null,
-      metrics: "Role-based Auth & PostgreSQL",
+      liveDemo: "[TODO: LMS live demo URL]",
+      metrics: "PostgreSQL RBAC & Indexed Schemas",
     },
     {
-      id: "todo-list-app",
-      title: "Todo List Application",
-      subtitle: "Task Management Web App",
-      category: "Full-Stack Web",
-      badge: "Web Application",
-      date: "July 2025",
+      id: "ai-medication-safety",
+      title: "[PROJECT NAME: AI-based medication safety / drug-interaction detection]",
+      subtitle: "Machine Learning Healthcare Safety Pipeline",
+      category: "AI & Healthcare",
+      badge: "Second Flagship [TODO]",
+      date: "[TODO: Date]",
       summary:
-        "A responsive task management application enabling users to create, update, complete, and delete tasks with seamless client-server synchronization.",
+        "[TODO: High-level summary of the medication safety and drug-interaction detection system]",
+      problem: "[TODO: Problem description - medical adverse interactions and clinical alert fatigue]",
+      approach: "[TODO: Technical approach - model architecture, feature representation, interaction graph]",
+      results: "[TODO: Validation metrics, accuracy, precision/recall on test benchmarks]",
+      tech: ["[TODO: PyTorch / Scikit-learn]", "[TODO: Python / FastAPI]", "[TODO: React]"],
+      github: "[TODO: Repository URL]",
+      liveDemo: "[TODO: Live Demo URL]",
       bulletPoints: [
-        "Developed a task management application enabling users to create, update, complete, and delete tasks through a responsive web interface.",
-        "Built the frontend using HTML and Embedded JavaScript with modular components to provide an interactive user experience.",
-        "Implemented backend APIs using Node.js and Express.js to handle task operations and maintain application logic.",
-        "Designed RESTful endpoints enabling seamless communication between the client and server for real-time task updates.",
+        "[TODO: Bullet point 1 - Architecture & model]",
+        "[TODO: Bullet point 2 - Pipeline & evaluation]",
+        "[TODO: Bullet point 3 - Deployment & clinical safety guardrails]",
       ],
-      tech: ["Node.js", "Express.js", "JavaScript", "EJS", "HTML", "CSS", "REST APIs"],
-      github: "https://github.com/hemkesh18/todo-list/tree/main/todo-app",
-      liveDemo: null,
-      metrics: "RESTful Endpoints & Modular EJS",
-    },
-    {
-      id: "personal-portfolio",
-      title: "Personal Portfolio & ATS Resume Suite",
-      subtitle: "Component-Driven Web Application",
-      category: "Full-Stack Web",
-      badge: "React & Tailwind",
-      date: "2025 - 2026",
-      summary:
-        "A responsive, recruiter-oriented developer portfolio and interactive resume suite engineered with React 19, Tailwind CSS v4, and Vite for showcasing engineering projects, academic credentials, and competitive achievements.",
-      bulletPoints: [
-        "Architected a responsive Single Page Application with modular React components, smooth scrolling, and sub-350ms production builds.",
-        "Engineered class-based dark and light theme switching with persistent local storage and CSS custom variants.",
-        "Implemented interactive ATS-formatted resume preview modal, copy-to-clipboard contact APIs, and dynamic configuration architecture.",
-      ],
-      tech: ["React.js", "Tailwind CSS v4", "Vite", "JavaScript (ES6+)", "Lucide Icons"],
-      github: "https://github.com/hemkesh18",
-      liveDemo: "#",
-      metrics: "Sub-350ms Vite Build & 100% Responsive",
+      keyTechnicalDecision:
+        "[TODO: Key engineering decision on representation, latency, or false-positive reduction]",
+      metrics: "[TODO: Benchmark results]",
     },
   ],
 
-  // Education Timeline Directly from Resume
+  // Hackathons and Competitions
+  hackathons: [
+    {
+      id: "hack-with-hyderabad",
+      name: "Hack with Hyderabad 3.0",
+      role: "[TODO: role, e.g. Lead Developer / ML Engineer]",
+      built: "[TODO: what was built, problem tackled, and architecture]",
+      outcome: "[TODO: confirmed outcome or rank]",
+      status: "pending_confirmation",
+    },
+    {
+      id: "amazon-ml-challenge-2026",
+      name: "Amazon ML Challenge 2026",
+      role: "[TODO: role and contribution]",
+      built: "[TODO: ML model, pipeline, multimodal approach, and evaluation strategy]",
+      outcome: "[TODO: confirmed outcome or rank]",
+      status: "pending_confirmation",
+    },
+    {
+      id: "sih-2026",
+      name: "Smart India Hackathon (SIH) 2026",
+      role: "[TODO: role and contribution]",
+      built: "[TODO: problem statement SIH26168 intelligent dead reckoning / navigation]",
+      outcome: "[TODO: confirmed outcome or rank]",
+      status: "pending_confirmation",
+    },
+    {
+      id: "vjh-2k26",
+      name: "VJH 2k26 Hackathon",
+      role: "[TODO: role and contribution]",
+      built: "[TODO: project description and stack]",
+      outcome: "[TODO: confirmed outcome or rank]",
+      status: "pending_confirmation",
+    },
+  ],
+
+  // Coding Profiles
+  codingProfiles: [
+    {
+      platform: "LeetCode",
+      handle: "[TODO: LeetCode username]",
+      stats: "[TODO: Solved count, e.g. 250+ solved, rating]",
+      url: "https://leetcode.com",
+    },
+    {
+      platform: "Codeforces",
+      handle: "[TODO: Codeforces username]",
+      stats: "[TODO: Rating & rank, e.g. Specialist / Pupil]",
+      url: "https://codeforces.com",
+    },
+    {
+      platform: "CodeChef",
+      handle: "[TODO: CodeChef username]",
+      stats: "[TODO: Stars & rating, e.g. 3-star / rating]",
+      url: "https://codechef.com",
+    },
+  ],
+
+  // Education Timeline
   education: [
     {
       institution: "Chaitanya Bharathi Institute of Technology (CBIT)",
       degree: "Bachelor of Engineering in Computer Science and Engineering",
-      period: "Aug. 2024 – July 2028",
+      period: "Aug. 2024 to July 2028",
       location: "Hyderabad, Telangana",
       score: "CGPA: 9.05 / 10.0",
       coursework: [
         "Data Structures",
         "Database Management Systems",
-        "Digital Logic Design",
         "Data Analysis and Algorithms",
+        "Digital Logic Design",
         "Core Java",
       ],
     },
     {
       institution: "Sri Chaitanya Junior College",
       degree: "Class XII (Intermediate) - Maths, Physics, Chemistry (MPC)",
-      period: "April 2022 – May 2024",
+      period: "April 2022 to May 2024",
       location: "Hyderabad, Telangana",
       score: "Percentage: 98.6%",
       coursework: ["Mathematics", "Physics", "Chemistry"],
     },
   ],
 
-  // Work Experience Directly from Resume
+  // Work Experience
   experience: [
     {
-      role: "Academic Tutor – IIT Foundation",
+      role: "Academic Tutor, IIT Foundation",
       organization: "Brain Hub",
-      period: "July 2025 – Present",
-      type: "Teaching & Mentorship",
+      period: "July 2025 to Present",
+      location: "Hyderabad, Telangana",
+      type: "Academic Tutoring & Mentorship",
       description:
-        "Tutoring students preparing for JEE foundation in Mathematics, Physics, and Chemistry. Explain complex problem-solving techniques and strengthen conceptual understanding through structured practice sessions.",
+        "Tutor secondary school students preparing for competitive JEE Foundation curriculum in Mathematics, Physics, and Chemistry. Deconstruct complex problem-solving patterns into repeatable methods, design custom assignment modules, and lead targeted doubt-clearing sessions. [TODO: number of students tutored and specific student outcomes].",
     },
   ],
 
-  // Leadership / Extracurricular & Competitive Exam Honors
+  // Honors, Entrance Examinations, and Beyond Code
   achievements: [
     {
-      title: "98.6 Percentile in JEE Mains Exam",
-      detail: "Conducted at National Level across India, demonstrating top-tier analytical and problem-solving capability in PCM.",
-      category: "National Examination",
+      category: "National & State Entrance Examinations",
+      title: "98.6 Percentile in JEE Mains; State Ranks: TS EAPCET 1689, AP EAPCET 2345",
+      detail:
+        "Secured 98.6 percentile in JEE Mains nationwide among over 1 million candidates. Achieved top state engineering entrance ranks in both Telangana and Andhra Pradesh.",
     },
     {
-      title: "Rank 1689 in TS EAPCET & Rank 2345 in AP EAPCET",
-      detail: "Achieved top ranks in both Telangana and Andhra Pradesh State Engineering Entrance Examinations.",
-      category: "State Rank",
-    },
-    {
-      title: "Second Place in College Level Carroms League",
-      detail: "Showcased strategic precision and competitive sportsmanship in intra-college sports tournaments.",
-      category: "Sports & Extracurricular",
-    },
-    {
-      title: "Third Position in Inter-College Free Fire Tournaments",
-      detail: "Placed 3rd in Hyderabad inter-college esports tournament competing as a strategic squad of 4 members.",
-      category: "Esports & Teamwork",
+      category: "Beyond Code & Collegiate Activities",
+      title: "College Carroms League (2nd Place) & Inter-College Free Fire Squad (3rd Place)",
+      detail:
+        "Secured 2nd place in CBIT college-level carroms tournament and 3rd place in Hyderabad inter-college esports tournament competing as a squad of 4.",
     },
   ],
 };
