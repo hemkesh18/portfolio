@@ -1,20 +1,41 @@
 import React, { useState, useEffect } from 'react';
-import { Star, GitFork, BookMarked, ExternalLink, RefreshCw } from 'lucide-react';
+import { Star, GitFork, BookMarked, ExternalLink } from 'lucide-react';
 import { GithubIcon } from './Icons';
+
+// Repositories explicitly excluded by user request
+const EXCLUDED_REPOS = ['hydradb', 'rocketride', 'rocketride-server', 'lcode'];
+
+// High-quality fallback descriptions for public repos with empty descriptions
+const REPO_DESCRIPTIONS = {
+  preflight: 'Autonomous CI/CD release safety gate powered by Vectorize Hindsight persistent memory.',
+  portfolio: 'Personal developer portfolio and ATS resume suite built with React 19, Vite, and Tailwind CSS.',
+  'learning-management-system': 'Full-stack learning management platform supporting role-based access control and PostgreSQL schemas.',
+  'todo-list': 'Full-stack task management web application built with Node.js, Express.js, and modular EJS templates.',
+  'LeetHub-2.0': 'Chrome extension automatically syncing verified LeetCode problem solutions to GitHub.',
+};
 
 const STATIC_FALLBACK_REPOS = [
   {
     name: 'preflight',
-    description: 'Autonomous Release Safety Gate with Persistent Memory for simulated fintech Kestrel Pay.',
+    description: REPO_DESCRIPTIONS.preflight,
     html_url: 'https://github.com/hemkesh18/preflight',
     stargazers_count: 0,
     forks_count: 0,
     language: 'Python',
-    updated_at: '2026-09-30T10:00:00Z',
+    updated_at: '2026-10-02T03:00:00Z',
+  },
+  {
+    name: 'portfolio',
+    description: REPO_DESCRIPTIONS.portfolio,
+    html_url: 'https://github.com/hemkesh18/portfolio',
+    stargazers_count: 0,
+    forks_count: 0,
+    language: 'JavaScript',
+    updated_at: '2026-10-02T03:00:00Z',
   },
   {
     name: 'learning-management-system',
-    description: 'Full-stack LMS supporting role-based access control, course publishing, and PostgreSQL schemas.',
+    description: REPO_DESCRIPTIONS['learning-management-system'],
     html_url: 'https://github.com/hemkesh18/learning-management-system',
     stargazers_count: 0,
     forks_count: 0,
@@ -22,17 +43,26 @@ const STATIC_FALLBACK_REPOS = [
     updated_at: '2025-11-20T10:00:00Z',
   },
   {
-    name: 'portfolio',
-    description: 'Personal developer portfolio and ATS resume suite built with React, Vite, and Tailwind CSS.',
-    html_url: 'https://github.com/hemkesh18/portfolio',
+    name: 'todo-list',
+    description: REPO_DESCRIPTIONS['todo-list'],
+    html_url: 'https://github.com/hemkesh18/todo-list',
     stargazers_count: 0,
     forks_count: 0,
     language: 'JavaScript',
-    updated_at: '2026-10-01T15:00:00Z',
+    updated_at: '2025-07-15T10:00:00Z',
+  },
+  {
+    name: 'LeetHub-2.0',
+    description: REPO_DESCRIPTIONS['LeetHub-2.0'],
+    html_url: 'https://github.com/hemkesh18/LeetHub-2.0',
+    stargazers_count: 0,
+    forks_count: 0,
+    language: 'JavaScript',
+    updated_at: '2025-05-10T10:00:00Z',
   },
 ];
 
-const CACHE_KEY = 'hemkesh_github_repos_cache';
+const CACHE_KEY = 'hemkesh_github_repos_cache_v3';
 const CACHE_EXPIRY_MS = 60 * 60 * 1000; // 1 hour
 
 export default function GithubActivity() {
@@ -60,34 +90,39 @@ export default function GithubActivity() {
 
       // 2. Fetch from GitHub API
       try {
-        const res = await fetch('https://api.github.com/users/hemkesh18/repos?sort=updated&per_page=6');
+        const res = await fetch('https://api.github.com/users/hemkesh18/repos?sort=updated&per_page=20');
         if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
         const data = await res.json();
 
         if (Array.isArray(data) && data.length > 0) {
-          const sanitized = data.slice(0, 6).map((r) => ({
-            name: r.name,
-            description: r.description || 'Public GitHub repository by Cuddapah Hemkesh.',
-            html_url: r.html_url,
-            stargazers_count: r.stargazers_count || 0,
-            forks_count: r.forks_count || 0,
-            language: r.language || 'Code',
-            updated_at: r.updated_at,
-          }));
+          const filtered = data
+            .filter((r) => !EXCLUDED_REPOS.includes(r.name.toLowerCase()))
+            .slice(0, 6)
+            .map((r) => ({
+              name: r.name,
+              description: r.description || REPO_DESCRIPTIONS[r.name] || 'Public GitHub repository by Cuddapah Hemkesh.',
+              html_url: r.html_url,
+              stargazers_count: r.stargazers_count || 0,
+              forks_count: r.forks_count || 0,
+              language: r.language || 'JavaScript',
+              updated_at: r.updated_at,
+            }));
 
-          setRepos(sanitized);
-          setIsCached(false);
-          try {
-            localStorage.setItem(
-              CACHE_KEY,
-              JSON.stringify({ timestamp: Date.now(), data: sanitized })
-            );
-          } catch (storageErr) {
-            // Storage quota or disabled, ignore
+          if (filtered.length > 0) {
+            setRepos(filtered);
+            setIsCached(false);
+            try {
+              localStorage.setItem(
+                CACHE_KEY,
+                JSON.stringify({ timestamp: Date.now(), data: filtered })
+              );
+            } catch (storageErr) {
+              // Ignore storage errors
+            }
           }
         }
       } catch (error) {
-        // Graceful fallback to verified static list
+        // Fallback to static verified list
         setRepos(STATIC_FALLBACK_REPOS);
         setIsCached(false);
       } finally {
@@ -129,7 +164,7 @@ export default function GithubActivity() {
         </div>
 
         {/* Repos Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {repos.map((repo, idx) => (
             <div
               key={idx}
