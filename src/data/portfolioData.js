@@ -12,12 +12,15 @@ export const portfolioData = {
     role: "Software engineer (full-stack + ML)",
     tagline: "I build AI-backed systems end to end.",
     proofLine: "Proven by Preflight, an autonomous release-safety gate with persistent memory.",
+    targetRole: "Software Engineering Intern",
+    targetFocus: "Full-Stack + ML Systems",
+    aboutTagline: "Targeting Software Engineering Intern opportunities to build production full-stack and machine learning systems.",
     yearStatus: "Third Year B.E. CSE, CBIT Hyderabad",
     college: "Chaitanya Bharathi Institute of Technology (CBIT), Hyderabad",
     cgpa: "9.05 / 10.0",
     location: "Hyderabad, Telangana",
     status: {
-      text: "Seeking Software Engineering Internships",
+      text: "Targeting Software Engineering Intern roles (Full-Stack + ML)",
       available: true,
     },
     socials: {
@@ -30,62 +33,61 @@ export const portfolioData = {
     lastUpdated: "October 2026",
   },
 
-  // Key Quick Metrics
+  // Key Quick Metrics (Shortened header line for tutoring without duplicate metrics)
   stats: [
     { label: "Current CGPA", value: "9.05", subtext: "CBIT Hyderabad" },
     { label: "JEE Mains", value: "98.6 %ile", subtext: "Top 1.4% Nationwide" },
-    { label: "Academic Tutoring", value: "10 Students", subtext: "JEE & CBSE (All 92%+)" },
+    { label: "Academic Tutoring", value: "Brain Hub", subtext: "JEE & CBSE Foundation" },
     { label: "Preflight Backtest", value: "4/9 vs 1/9", subtext: "Repeat outage recall" },
   ],
 
   // About Me Section
   about: {
     overview:
-      "I am a Computer Science Engineering student at Chaitanya Bharathi Institute of Technology (CBIT), Hyderabad, maintaining a 9.05 CGPA. I build AI-backed systems end to end, focusing on persistent memory architectures, backend reliability, and full-stack engineering.",
+      "I am a third-year Computer Science Engineering student at Chaitanya Bharathi Institute of Technology (CBIT), Hyderabad, maintaining a 9.05 CGPA. Targeting Software Engineering Intern roles where I can contribute to production full-stack web applications and machine learning systems.",
     focus:
-      "My primary project is Preflight, an autonomous release safety gate that connects persistent memory to CI/CD pipelines to catch recurring outage patterns before production. Outside software engineering, I teach competitive Mathematics, Physics, and Chemistry problem solving to secondary school students at Brain Hub.",
+      "My primary project is Preflight, an autonomous release safety gate that connects persistent memory to CI/CD pipelines to catch recurring outage patterns before production. Outside software engineering, I teach competitive Mathematics, Physics, and Chemistry to secondary school students at Brain Hub.",
   },
 
-  // Technical Skills Regrouped: Strong / Working / Familiar
+  // Technical Skills Regrouped by Strength: Strong / Working / Familiar (No generic tools like VS Code)
   skills: [
     {
       group: "Strong",
-      description: "Technologies I build with daily and can explain in depth",
+      description: "Technologies I build production systems with daily and explain in depth",
       items: [
-        "Core Java",
+        "Java",
         "Python",
-        "JavaScript (ES6+)",
-        "PostgreSQL / SQL",
-        "Node.js",
-        "Express.js",
-        "React.js",
+        "JavaScript",
+        "SQL",
+        "React",
+        "Node / Express",
+        "PostgreSQL",
         "REST APIs",
         "Data Structures & Algorithms",
       ],
     },
     {
       group: "Working",
-      description: "Tools and frameworks used in active projects and coursework",
+      description: "Frameworks, databases, and APIs used in active projects and hackathon systems",
       items: [
         "FastAPI",
         "Tailwind CSS",
-        "Git / GitHub",
-        "DBMS",
+        "Git & GitHub",
+        "Flutter",
         "EJS",
+        "Groq LLM APIs",
+        "Vectorize Hindsight",
+        "DBMS",
       ],
     },
     {
       group: "Familiar",
-      description: "Libraries, runtime engines, and concepts explored through prototypes",
+      description: "Languages and libraries explored through prototypes and foundational coursework",
       items: [
         "C",
-        "C++ Basics",
-        "Vectorize Hindsight",
+        "C++",
         "PyTorch / ONNX",
-        "Groq LLM APIs",
-        "LaTeX",
-        "Jupyter Notebook",
-        "Google Colab",
+        "Digital Logic Design",
       ],
     },
   ],
@@ -98,6 +100,11 @@ export const portfolioData = {
     scenario: "Built for simulated fintech Kestrel Pay",
     summary:
       "An AI agent at the CI/CD gate that recalls past deployments, outages, and runbooks from Vectorize Hindsight persistent memory and returns PASS, WARN, or BLOCK with cited evidence.",
+    benchmarkType: "Simulated Benchmark",
+    setupNote:
+      "Setup: 150 simulated chronological deployments with 9 repeat-outage incidents evaluated under two conditions: persistent memory enabled vs baseline without memory.",
+    howItWorks:
+      "How it works: Vectorize Hindsight stores historical deployment manifests, failure post-mortems, and mitigation runbooks. At deploy time, Preflight semantically queries Hindsight using the incoming release manifest, computes a composite risk score (0.00 to 1.00), and halts the CI/CD pipeline (exit code 1) if the score reaches 0.60+ or matches a known critical failure pattern.",
     problem:
       "Release pipelines lose institutional memory. When on-call engineers leave or incident post-mortems stay buried in static documentation, known failure patterns repeat silently. Standard CI/CD checks evaluate code syntax and unit tests, but have zero recall of how similar configuration or dependency changes behaved in past production incidents.",
     approach:
@@ -120,7 +127,7 @@ export const portfolioData = {
       { classification: "HIGH", range: "0.60 to 1.00", action: "BLOCK", exitCode: 1, effect: "Halts release. Requires on-call review and runbook remediation." },
     ],
     results: {
-      headline: "Backtest on 150 simulated deployments (chronological replay)",
+      headline: "Simulated Benchmark Replay across 150 Chronological Deployments",
       comparison: [
         { metric: "Repeat incidents flagged HIGH", memoryOn: "4 / 9 (44.4%)", memoryOff: "1 / 9 (11.1%)", note: "Memory quadrupled recall of recurring failure patterns" },
         { metric: "False alarms on healthy releases", memoryOn: "5 / 111 (4.5%)", memoryOff: "5 / 111 (4.5%)", note: "Identical false alarm rate; zero added noise" },
@@ -153,7 +160,7 @@ export const portfolioData = {
       },
     ],
     limitations:
-      "Synthetic operational history and small sample size (N=9 repeat incidents across planted patterns). These findings demonstrate the mechanism and baseline comparison, not a production claim.",
+      "Simulated benchmark with synthetic operational history and small sample size (N=9 repeat incidents across planted failure patterns). Demonstrates the memory gate mechanism and baseline comparison, not a production claim.",
     links: {
       github: "https://github.com/hemkesh18/preflight",
       liveDemo: "https://preflight-kw3s.vercel.app/",
@@ -242,69 +249,79 @@ export const portfolioData = {
     ],
   },
 
-  // Secondary and Placeholder Projects
+  // Featured Engineering Projects: LMS and Todo List
   projects: [
     {
       id: "learning-management-system",
       title: "Learning Management System",
       subtitle: "Full-Stack Educational Platform with Role-Based Access Control",
       category: "Full-Stack Web",
-      badge: "Core Project",
+      badge: "Full-Stack Project",
       date: "November 2025",
       summary:
         "A full-stack learning management platform supporting role-based access for administrators, instructors, and students, with dynamic course publishing and relational enrollment tracking.",
+      techStackLine: "Node.js, Express.js, PostgreSQL, EJS, SQL",
+      concreteDecision:
+        "Engineered role-based access control (RBAC) separating administrative, instructor, and student privileges, backed by normalized PostgreSQL schemas with explicit indexes on user credentials and course enrollments to prevent N+1 query degradation during peak enrollment windows.",
       bulletPoints: [
-        "Built full-stack role-based access control (RBAC) separating administrative, instructor, and student permissions.",
-        "Engineered course publishing workflows and student enrollments using server-rendered EJS templates on Express.js.",
+        "Built full-stack role-based authorization guarding administrative dashboards, instructor course creation, and student enrollment routes.",
+        "Engineered server-rendered dynamic pages using modular EJS templates integrated with Express session validation.",
         "Designed and normalized PostgreSQL schemas with explicit indexes on user credentials and course enrollments.",
       ],
       keyTechnicalDecision:
         "Designed relational PostgreSQL schemas with explicit indexes on user credentials, courses, and enrollments to prevent N+1 query degradation during peak enrollment windows.",
-      tech: ["Node.js", "Express.js", "PostgreSQL", "EJS", "JavaScript", "HTML/CSS", "SQL"],
+      tech: ["Node.js", "Express.js", "PostgreSQL", "EJS", "SQL"],
       github: "https://github.com/hemkesh18/learning-management-system",
-      liveDemo: "[TODO: LMS live demo URL]",
+      liveDemo: null,
       metrics: "PostgreSQL RBAC & Indexed Schemas",
     },
     {
-      id: "personal-portfolio",
-      title: "Personal Portfolio & ATS Resume Suite",
-      subtitle: "Component-Driven Web Application with Live Telemetry",
+      id: "todo-list-app",
+      title: "Todo List Application",
+      subtitle: "Task Management Web App with Stateful REST Architecture",
       category: "Full-Stack Web",
-      badge: "React & Tailwind",
-      date: "2025 to 2026",
+      badge: "Web Application",
+      date: "July 2025",
       summary:
-        "A responsive, recruiter-oriented developer portfolio and interactive resume suite engineered with React 19, Tailwind CSS v4, and Vite for showcasing engineering projects, academic credentials, and competitive achievements.",
+        "A responsive task management application enabling users to create, update, complete, and delete tasks with seamless client-server state synchronization.",
+      techStackLine: "Node.js, Express.js, EJS, REST APIs",
+      concreteDecision:
+        "Engineered stateful RESTful CRUD endpoints with server-side validation and modular EJS component partials (header, form, list) ensuring reliable state synchronization between client and server without full-page reloads.",
       bulletPoints: [
-        "Architected a responsive Single Page Application with modular React components, smooth scrolling, and sub-second production builds.",
-        "Engineered class-based dark and light theme switching with persistent local storage and CSS custom variants.",
-        "Implemented interactive ATS-formatted resume preview modal, command palette (Ctrl+K), and dynamic client-side GitHub API integration with local caching.",
+        "Built RESTful endpoints handling complete task lifecycles (creation, status update, inline editing, and deletion).",
+        "Structured frontend with modular EJS partials to maintain clean separation of concerns and fast server rendering.",
+        "Implemented input sanitization and error boundaries to prevent malformed payloads from crashing Express middleware.",
       ],
       keyTechnicalDecision:
-        "Engineered a resilient client-side GitHub API integration with 1-hour local storage caching and graceful static fallbacks to guarantee zero layout shifts or empty states during API rate limits.",
-      tech: ["React.js", "Tailwind CSS v4", "Vite", "JavaScript (ES6+)", "Lucide Icons"],
-      github: "https://github.com/hemkesh18/portfolio",
-      liveDemo: "https://portfolio-phi-sage-60.vercel.app/",
-      metrics: "Sub-Second Builds & 100% Responsive",
+        "Engineered RESTful endpoints with input validation and modular EJS partials ensuring consistent state synchronization and clean separation of concerns.",
+      tech: ["Node.js", "Express.js", "EJS", "REST APIs"],
+      github: "https://github.com/hemkesh18/todo-list",
+      liveDemo: null,
+      metrics: "RESTful Endpoints & Modular EJS",
     },
   ],
 
-  // Hackathons and Competitions
+  // Hackathons and Competitions: Ordered by technical impact with concrete outcome & stack
   hackathons: [
-    {
-      id: "hack-with-hyderabad",
-      name: "Hack with Hyderabad 3.0",
-      role: "Full-Stack Developer and Core Architect",
-      built: "Engineered core application workflows, database schema, and full-stack responsive web client.",
-      outcome: "Participant with Verified Certificate",
-      status: "verified",
-    },
     {
       id: "sih-2026",
       name: "Smart India Hackathon (SIH) 2026",
-      role: "Mobile and ML Integration Developer",
-      built: "Built Flutter mobile client integrated with database endpoints and connected to machine learning inference backend.",
-      outcome: "Collegiate Internal Round Participant",
+      role: "Mobile Client & ML Pipeline Developer",
+      stack: "Flutter, Dart, Python, FastAPI, PostgreSQL",
+      built: "Built cross-platform Flutter mobile client connected to backend PostgreSQL schemas and ML model inference endpoints for live automated telemetry.",
+      outcome: "Collegiate Internal Round Selection (Top college submissions)",
       status: "verified",
+      statusBadge: "Internal Round Selection",
+    },
+    {
+      id: "hack-with-hyderabad",
+      name: "Hack with Hyderabad 3.0",
+      role: "Full-Stack Developer & System Architect",
+      stack: "React, Node.js, Express.js, PostgreSQL, Tailwind CSS",
+      built: "Engineered full-stack responsive web client, REST API endpoints, and relational database schemas under a 24-hour sprint.",
+      outcome: "Completed full working prototype; Received Verified Participation Certificate",
+      status: "verified",
+      statusBadge: "Verified Certificate",
     },
   ],
 
@@ -323,7 +340,7 @@ export const portfolioData = {
     {
       institution: "Chaitanya Bharathi Institute of Technology (CBIT)",
       degree: "Bachelor of Engineering in Computer Science and Engineering",
-      period: "Aug. 2024 to July 2028",
+      period: "Aug 2024 to July 2028",
       location: "Hyderabad, Telangana",
       score: "CGPA: 9.05 / 10.0",
       coursework: [
@@ -357,16 +374,16 @@ export const portfolioData = {
     },
   ],
 
-  // Honors, Entrance Examinations, and Beyond Code
+  // Honors & Entrance Examinations
   achievements: [
     {
       category: "National & State Entrance Examinations",
       title: "98.6 Percentile in JEE Mains; State Ranks: TS EAPCET 1689, AP EAPCET 2345",
       detail:
-        "Secured 98.6 percentile in JEE Mains nationwide among over 1 million candidates. Achieved top state engineering entrance ranks in both Telangana and Andhra Pradesh.",
+        "Secured 98.6 percentile in JEE Mains nationwide among over 1 million candidates. Achieved top state engineering entrance ranks in both Telangana (1689) and Andhra Pradesh (2345).",
     },
     {
-      category: "Beyond Code & Collegiate Activities",
+      category: "Outside Coding",
       title: "College Carroms League (2nd Place) & Inter-College Free Fire Squad (3rd Place)",
       detail:
         "Secured 2nd place in CBIT college-level carroms tournament and 3rd place in Hyderabad inter-college esports tournament competing as a squad of 4.",

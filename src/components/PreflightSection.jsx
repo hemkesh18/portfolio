@@ -154,15 +154,32 @@ export default function PreflightSection() {
           <PreflightArchitecture />
         </div>
 
-        {/* Empirical Results: Before / After Comparison */}
+        {/* How It Works Explainer Callout */}
+        <div className="mt-8 p-4 rounded-lg bg-teal-50/70 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/60 text-xs sm:text-sm text-slate-700 dark:text-slate-300 space-y-1.5">
+          <div className="font-bold text-teal-900 dark:text-teal-200 flex items-center gap-2">
+            <Cpu size={16} className="text-teal-700 dark:text-teal-400" />
+            <span>How Preflight Works: Memory Storage & Release Blocking Decisions</span>
+          </div>
+          <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+            {preflight.howItWorks}
+          </p>
+        </div>
+
+        {/* Simulated Benchmark Results: Before / After Comparison */}
         <div className="mt-10">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-3">
             <div>
+              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 mb-1">
+                <span>{preflight.benchmarkType}</span>
+              </div>
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                Empirical Results
+                Evaluation Benchmark Results
               </h3>
               <p className="text-sm font-bold text-slate-900 dark:text-white">
                 {preflight.results.headline}
+              </p>
+              <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
+                {preflight.setupNote}
               </p>
             </div>
             <span className="text-[11px] text-slate-400 font-mono">
@@ -201,7 +218,7 @@ export default function PreflightSection() {
           <div className="mt-3 p-3 rounded-md bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 flex items-start gap-2">
             <AlertOctagon size={16} className="text-amber-500 shrink-0 mt-0.5" />
             <div>
-              <span className="font-semibold text-slate-900 dark:text-white mr-1">Empirical Limitations:</span>
+              <span className="font-semibold text-slate-900 dark:text-white mr-1">Simulation Context:</span>
               <span>{preflight.limitations}</span>
             </div>
           </div>

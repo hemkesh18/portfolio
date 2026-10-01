@@ -87,11 +87,11 @@ export default function ResumeModal({ isOpen, onClose }) {
                 {personal.socials.email}
               </a>
               <span>•</span>
-              <a href={personal.socials.linkedin} target="_blank" rel="noreferrer" className="text-teal-700 dark:text-teal-400 hover:underline">
+              <a href={personal.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-teal-700 dark:text-teal-400 hover:underline">
                 LinkedIn
               </a>
               <span>•</span>
-              <a href={personal.socials.github} target="_blank" rel="noreferrer" className="text-teal-700 dark:text-teal-400 hover:underline">
+              <a href={personal.socials.github} target="_blank" rel="noopener noreferrer" className="text-teal-700 dark:text-teal-400 hover:underline">
                 GitHub
               </a>
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { Trophy, HelpCircle, Calendar, Sparkles } from 'lucide-react';
+import { Trophy, CheckCircle2 } from 'lucide-react';
 
 export default function Hackathons() {
   const { hackathons } = portfolioData;
@@ -37,8 +37,8 @@ export default function Hackathons() {
                     </h3>
                   </div>
 
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-amber-50 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60 shrink-0">
-                    Pending Confirmation
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-teal-50 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300 border border-teal-200 dark:border-teal-800/60 shrink-0">
+                    {hackathon.statusBadge || 'Completed'}
                   </span>
                 </div>
 
@@ -49,15 +49,20 @@ export default function Hackathons() {
                   </div>
 
                   <div>
+                    <span className="font-semibold text-slate-900 dark:text-white block text-[11px]">Tech Stack:</span>
+                    <span className="font-mono text-[11px] text-teal-700 dark:text-teal-400">{hackathon.stack}</span>
+                  </div>
+
+                  <div>
                     <span className="font-semibold text-slate-900 dark:text-white block text-[11px]">What was built:</span>
                     <span>{hackathon.built}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-                <HelpCircle size={13} className="text-amber-500" />
-                <span>Outcome: {hackathon.outcome}</span>
+              <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
+                <CheckCircle2 size={13} className="text-teal-700 dark:text-teal-400 shrink-0" />
+                <span><strong className="text-slate-900 dark:text-white font-semibold">Outcome:</strong> {hackathon.outcome}</span>
               </div>
             </div>
           ))}

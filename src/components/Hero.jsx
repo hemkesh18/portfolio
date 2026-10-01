@@ -40,6 +40,14 @@ export default function Hero({ onOpenResume }) {
             </p>
           </div>
 
+          {/* Target Role & Engineering Focus Callout */}
+          <div className="mt-3.5 inline-flex items-center gap-2 px-3 py-1.5 rounded-md text-xs font-semibold bg-slate-100 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700/80">
+            <span className="font-bold text-teal-700 dark:text-teal-400">Target Role:</span>
+            <span>{personal.targetRole}</span>
+            <span className="text-slate-400">•</span>
+            <span className="text-slate-600 dark:text-slate-300">{personal.targetFocus}</span>
+          </div>
+
           {/* Academic, Tutoring & Location Metadata */}
           <div className="mt-4 flex flex-wrap items-center gap-y-2 gap-x-3 text-xs font-medium text-slate-600 dark:text-slate-400">
             <span className="flex items-center gap-1.5">
@@ -54,7 +62,7 @@ export default function Hero({ onOpenResume }) {
             <span>•</span>
             <span className="flex items-center gap-1.5 font-medium text-slate-700 dark:text-slate-300">
               <BookOpen size={13} className="text-teal-600 dark:text-teal-400" />
-              Academic Tutor at Brain Hub
+              Academic Tutor, Brain Hub
             </span>
             <span>•</span>
             <span>
@@ -82,6 +90,7 @@ export default function Hero({ onOpenResume }) {
 
             <button
               onClick={onOpenResume}
+              aria-label="Open ATS resume preview modal"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md text-sm font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 transition-colors"
             >
               <FileText size={16} />

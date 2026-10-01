@@ -120,6 +120,7 @@ export default function Navbar({ theme, toggleTheme, onOpenResume, onOpenCommand
             {/* Resume Button */}
             <button
               onClick={onOpenResume}
+              aria-label="Open ATS resume preview"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold bg-teal-700 hover:bg-teal-800 text-white shadow-xs transition-colors"
             >
               <FileText size={13} />
