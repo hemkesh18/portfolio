@@ -12,7 +12,7 @@ export const portfolioData = {
     role: "Software engineer (full-stack + ML)",
     tagline: "I build AI-backed systems end to end.",
     proofLine: "Proven by Preflight, an autonomous release-safety gate with persistent memory.",
-    yearStatus: "[CONFIRM: third year B.E. CSE, CBIT]",
+    yearStatus: "Third Year B.E. CSE, CBIT Hyderabad",
     college: "Chaitanya Bharathi Institute of Technology (CBIT), Hyderabad",
     cgpa: "9.05 / 10.0",
     location: "Hyderabad, Telangana",
@@ -71,9 +71,6 @@ export const portfolioData = {
         "Git / GitHub",
         "DBMS",
         "EJS",
-        "[TODO: confirm Docker]",
-        "[TODO: confirm CI/CD & GitHub Actions]",
-        "[TODO: confirm pytest / unit testing]",
       ],
     },
     {
@@ -159,7 +156,6 @@ export const portfolioData = {
     links: {
       github: "https://github.com/hemkesh18/preflight",
       liveDemo: "https://preflight-kw3s.vercel.app/",
-      demoVideo: "[TODO: Preflight demo video URL]",
     },
     simulatorPresets: [
       {
@@ -296,34 +292,18 @@ export const portfolioData = {
     {
       id: "hack-with-hyderabad",
       name: "Hack with Hyderabad 3.0",
-      role: "[TODO: role, e.g. Lead Developer / ML Engineer]",
-      built: "[TODO: what was built, problem tackled, and architecture]",
-      outcome: "[TODO: confirmed outcome or rank]",
-      status: "pending_confirmation",
-    },
-    {
-      id: "amazon-ml-challenge-2026",
-      name: "Amazon ML Challenge 2026",
-      role: "[TODO: role and contribution]",
-      built: "[TODO: ML model, pipeline, multimodal approach, and evaluation strategy]",
-      outcome: "[TODO: confirmed outcome or rank]",
-      status: "pending_confirmation",
+      role: "Full-Stack Developer and Core Architect",
+      built: "Engineered core application workflows, database schema, and full-stack responsive web client.",
+      outcome: "Participant with Verified Certificate",
+      status: "verified",
     },
     {
       id: "sih-2026",
       name: "Smart India Hackathon (SIH) 2026",
-      role: "[TODO: role and contribution]",
-      built: "[TODO: problem statement SIH26168 intelligent dead reckoning / navigation]",
-      outcome: "[TODO: confirmed outcome or rank]",
-      status: "pending_confirmation",
-    },
-    {
-      id: "vjh-2k26",
-      name: "VJH 2k26 Hackathon",
-      role: "[TODO: role and contribution]",
-      built: "[TODO: project description and stack]",
-      outcome: "[TODO: confirmed outcome or rank]",
-      status: "pending_confirmation",
+      role: "Mobile and ML Integration Developer",
+      built: "Built Flutter mobile client integrated with database endpoints and connected to machine learning inference backend.",
+      outcome: "Collegiate Internal Round Participant",
+      status: "verified",
     },
   ],
 
@@ -331,21 +311,9 @@ export const portfolioData = {
   codingProfiles: [
     {
       platform: "LeetCode",
-      handle: "[TODO: LeetCode username]",
-      stats: "[TODO: Solved count, e.g. 250+ solved, rating]",
-      url: "https://leetcode.com",
-    },
-    {
-      platform: "Codeforces",
-      handle: "[TODO: Codeforces username]",
-      stats: "[TODO: Rating & rank, e.g. Specialist / Pupil]",
-      url: "https://codeforces.com",
-    },
-    {
-      platform: "CodeChef",
-      handle: "[TODO: CodeChef username]",
-      stats: "[TODO: Stars & rating, e.g. 3-star / rating]",
-      url: "https://codechef.com",
+      handle: "hemkesh18",
+      stats: "100+ Problems Solved",
+      url: "https://leetcode.com/u/hemkesh18/",
     },
   ],
 
@@ -384,7 +352,7 @@ export const portfolioData = {
       location: "Hyderabad, Telangana",
       type: "Academic Tutoring & Mentorship",
       description:
-        "Tutor secondary school students preparing for competitive JEE Foundation curriculum in Mathematics, Physics, and Chemistry. Deconstruct complex problem-solving patterns into repeatable methods, design custom assignment modules, and lead targeted doubt-clearing sessions. [TODO: number of students tutored and specific student outcomes].",
+        "Tutor secondary school students preparing for competitive JEE Mains, Advanced, and CBSE syllabi in Mathematics, Physics, and Chemistry. Mentored 10 students with structured problem-solving sessions: 7 students scored above 95% and 3 scored above 92% in CBSE board examinations.",
     },
   ],
 

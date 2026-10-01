@@ -4,7 +4,6 @@ import {
   ShieldCheck,
   AlertOctagon,
   ExternalLink,
-  Video,
   CheckCircle2,
   AlertTriangle,
   Cpu,
@@ -64,11 +63,6 @@ export default function PreflightSection() {
                 <span>Live: {preflight.links.liveDemo}</span>
               </span>
             )}
-
-            <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
-              <Video size={13} />
-              <span>Video: {preflight.links.demoVideo}</span>
-            </span>
           </div>
         </div>
 

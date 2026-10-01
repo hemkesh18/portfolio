@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { Mail, Copy, Check, Send, AlertCircle } from 'lucide-react';
+import { Mail, Copy, Check, Send, AlertCircle, ExternalLink } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 
 export default function Contact() {
   const { personal } = portfolioData;
   const [copied, setCopied] = useState(false);
   const [formState, setFormState] = useState({ name: '', email: '', message: '', hp_bot: '' });
-  const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  const [status, setStatus] = useState('idle'); // 'idle' | 'success' | 'error'
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleCopyEmail = () => {
@@ -16,7 +16,7 @@ export default function Contact() {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     // Honeypot spam protection: if filled, quietly succeed without doing anything
@@ -25,55 +25,34 @@ export default function Contact() {
       return;
     }
 
-    // Basic client-side validation
+    // Client-side validation
     if (!formState.name.trim() || !formState.email.trim() || !formState.message.trim()) {
       setStatus('error');
-      setErrorMessage('Please fill in all required fields.');
+      setErrorMessage('Please fill in your name, email, and message.');
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formState.email)) {
+    if (!emailRegex.test(formState.email.trim())) {
       setStatus('error');
       setErrorMessage('Please enter a valid email address.');
       return;
     }
 
-    setStatus('submitting');
     setErrorMessage('');
+    setStatus('success');
+
+    // Prepare mailto link and trigger directly within user gesture
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${formState.name.trim()}`);
+    const body = encodeURIComponent(
+      `Hi ${personal.name},\n\n${formState.message.trim()}\n\nBest regards,\n${formState.name.trim()}\nEmail: ${formState.email.trim()}`
+    );
+    const mailtoUrl = `mailto:${personal.socials.email}?subject=${subject}&body=${body}`;
 
     try {
-      // Formspree endpoint (User replaces TODO_FORM_ID with real endpoint)
-      const res = await fetch('https://formspree.io/f/TODO_FORM_ID', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          name: formState.name,
-          email: formState.email,
-          message: formState.message,
-        }),
-      });
-
-      if (res.ok) {
-        setStatus('success');
-        setFormState({ name: '', email: '', message: '', hp_bot: '' });
-      } else {
-        // Fallback to mailto when Formspree endpoint is placeholder
-        const subject = encodeURIComponent(`Portfolio Inquiry from ${formState.name}`);
-        const body = encodeURIComponent(
-          `Hi ${personal.name},\n\n${formState.message}\n\nFrom: ${formState.name} (${formState.email})`
-        );
-        window.location.href = `mailto:${personal.socials.email}?subject=${subject}&body=${body}`;
-        setStatus('success');
-      }
+      window.location.href = mailtoUrl;
     } catch (err) {
-      // Fallback to mailto on network failure
-      const subject = encodeURIComponent(`Portfolio Inquiry from ${formState.name}`);
-      const body = encodeURIComponent(
-        `Hi ${personal.name},\n\n${formState.message}\n\nFrom: ${formState.name} (${formState.email})`
-      );
-      window.location.href = `mailto:${personal.socials.email}?subject=${subject}&body=${body}`;
-      setStatus('success');
+      // Browser handles mailto
     }
   };
 
@@ -91,7 +70,7 @@ export default function Contact() {
                 Get In Touch
               </h2>
               <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                I am open to software engineering internships and technical discussions regarding full-stack systems, backend engineering, and autonomous AI agents.
+                I am actively seeking software engineering internships and open to technical discussions regarding persistent memory, full-stack architectures, and AI release engineering.
               </p>
             </div>
 
@@ -152,7 +131,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Contact Form with validation & honeypot spam protection */}
+          {/* Contact Form */}
           <div className="lg:col-span-7">
             <div className="p-6 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4">
@@ -160,85 +139,108 @@ export default function Contact() {
               </h3>
 
               {status === 'success' && (
-                <div className="mb-4 p-3 rounded bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
-                  <Check size={15} className="shrink-0" />
-                  <span>Thank you. Your message has been prepared/dispatched. I will get back to you shortly.</span>
+                <div className="mb-4 p-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 text-xs space-y-2">
+                  <div className="flex items-center gap-2 font-semibold">
+                    <Check size={16} className="text-emerald-600 dark:text-emerald-400" />
+                    <span>Your message draft has been prepared!</span>
+                  </div>
+                  <p className="text-[11px] text-emerald-800 dark:text-emerald-300 leading-relaxed">
+                    Your default email client has been launched with your message pre-filled to <strong>{personal.socials.email}</strong>.
+                  </p>
+                  <div className="pt-2 flex flex-wrap gap-2">
+                    <button
+                      onClick={handleCopyEmail}
+                      className="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-emerald-300 dark:border-emerald-700 text-emerald-800 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-colors text-[11px] font-medium"
+                    >
+                      {copied ? "Copied Email!" : "Copy Email Address"}
+                    </button>
+                    <button
+                      onClick={() => {
+                        setStatus('idle');
+                        setFormState({ name: '', email: '', message: '', hp_bot: '' });
+                      }}
+                      className="px-2.5 py-1 rounded text-slate-600 dark:text-slate-400 hover:underline text-[11px]"
+                    >
+                      Send Another
+                    </button>
+                  </div>
                 </div>
               )}
 
               {status === 'error' && (
                 <div className="mb-4 p-3 rounded bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800 text-rose-800 dark:text-rose-300 text-xs flex items-center gap-2">
                   <AlertCircle size={15} className="shrink-0" />
-                  <span>{errorMessage || 'Failed to submit form. Please use the direct email link above.'}</span>
+                  <span>{errorMessage}</span>
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-4 text-xs">
-                {/* Honeypot field (hidden from genuine users) */}
-                <input
-                  type="text"
-                  name="hp_bot"
-                  value={formState.hp_bot}
-                  onChange={(e) => setFormState({ ...formState, hp_bot: e.target.value })}
-                  style={{ display: 'none' }}
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
-
-                <div>
-                  <label htmlFor="contact-name" className="block font-medium text-slate-700 dark:text-slate-300 mb-1">
-                    Your Name
-                  </label>
+              {status !== 'success' && (
+                <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+                  {/* Honeypot field (hidden from genuine users) */}
                   <input
-                    id="contact-name"
                     type="text"
-                    required
-                    value={formState.name}
-                    onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                    placeholder="e.g. Jane Doe"
-                    className="w-full px-3 py-2 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-teal-700 dark:focus:border-teal-400 text-xs"
+                    name="hp_bot"
+                    value={formState.hp_bot}
+                    onChange={(e) => setFormState({ ...formState, hp_bot: e.target.value })}
+                    style={{ display: 'none' }}
+                    tabIndex={-1}
+                    autoComplete="off"
                   />
-                </div>
 
-                <div>
-                  <label htmlFor="contact-email" className="block font-medium text-slate-700 dark:text-slate-300 mb-1">
-                    Your Email
-                  </label>
-                  <input
-                    id="contact-email"
-                    type="email"
-                    required
-                    value={formState.email}
-                    onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                    placeholder="name@organization.com"
-                    className="w-full px-3 py-2 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-teal-700 dark:focus:border-teal-400 text-xs"
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="contact-name" className="block font-medium text-slate-700 dark:text-slate-300 mb-1">
+                      Your Name
+                    </label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      required
+                      value={formState.name}
+                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                      placeholder="e.g. Jane Doe"
+                      className="w-full px-3 py-2 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-teal-700 dark:focus:border-teal-400 text-xs"
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="contact-message" className="block font-medium text-slate-700 dark:text-slate-300 mb-1">
-                    Message
-                  </label>
-                  <textarea
-                    id="contact-message"
-                    rows={4}
-                    required
-                    value={formState.message}
-                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    placeholder="Inquiry regarding software engineering internship opportunities or project review..."
-                    className="w-full px-3 py-2 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-teal-700 dark:focus:border-teal-400 text-xs resize-none"
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="contact-email" className="block font-medium text-slate-700 dark:text-slate-300 mb-1">
+                      Your Email
+                    </label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      required
+                      value={formState.email}
+                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                      placeholder="name@organization.com"
+                      className="w-full px-3 py-2 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-teal-700 dark:focus:border-teal-400 text-xs"
+                    />
+                  </div>
 
-                <button
-                  type="submit"
-                  disabled={status === 'submitting'}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-md text-xs font-semibold bg-teal-700 hover:bg-teal-800 disabled:opacity-50 text-white transition-colors"
-                >
-                  <Send size={14} />
-                  <span>{status === 'submitting' ? 'Sending...' : 'Send Message'}</span>
-                </button>
-              </form>
+                  <div>
+                    <label htmlFor="contact-message" className="block font-medium text-slate-700 dark:text-slate-300 mb-1">
+                      Message
+                    </label>
+                    <textarea
+                      id="contact-message"
+                      rows={4}
+                      required
+                      value={formState.message}
+                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                      placeholder="Inquiry regarding software engineering internship opportunities or project review..."
+                      className="w-full px-3 py-2 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-teal-700 dark:focus:border-teal-400 text-xs resize-none"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-md text-xs font-semibold bg-teal-700 hover:bg-teal-800 text-white shadow-xs transition-colors"
+                  >
+                    <Send size={14} />
+                    <span>Send Message</span>
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
