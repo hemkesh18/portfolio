@@ -163,23 +163,24 @@
           <p>Autonomous safety gate powered by Vectorize Hindsight persistent memory to catch recurrent deployment regressions before production.</p>
           <p><strong>How it works:</strong> Vectorize Hindsight memory stores historical deployment manifests, architectural diffs, and incident post-mortems with remediation runbooks. At deploy time, Preflight semantically compares the proposed release against stored incident patterns and blocks the release (exit code 1) if the risk score exceeds 0.60 or matches a known repeat-outage scenario.</p>
           <p><strong>Benchmark setup:</strong> 150 simulated deployments, 9 repeat-outage incidents, comparing memory-enabled Preflight against a stateless baseline without memory.</p>
+          <p><strong>Simulated benchmark result:</strong> with memory, Preflight caught 4 of 9 repeat-outage incidents; the stateless baseline caught 1 of 9.</p>
           <p>Live Application: <a href="https://preflight-kw3s.vercel.app/" target="_blank" rel="noopener noreferrer">preflight-kw3s.vercel.app</a></p>
           <p>GitHub Repository: <a href="https://github.com/hemkesh18/preflight" target="_blank" rel="noopener noreferrer">github.com/hemkesh18/preflight</a></p>
         </article>
 
         <article>
           <h3>Learning Management System (LMS)</h3>
-          <p><strong>Tech stack:</strong> Node, Express, PostgreSQL, EJS</p>
-          <p>Full-stack learning management platform supporting role-based access control, course modules, and PostgreSQL schemas.</p>
-          <p><strong>Design Decision:</strong> Engineered role-based access control (RBAC) separating administrative, instructor, and student privileges, with indexed PostgreSQL foreign keys preventing query bottlenecks during concurrent course enrollments.</p>
+          <p><strong>Tech stack:</strong> Node, Express, PostgreSQL, Sequelize ORM, EJS</p>
+          <p>Full-stack learning management platform supporting role-based access for teachers and students, with dynamic course publishing and relational enrollment tracking.</p>
+          <p><strong>Design Decision:</strong> Engineered role-based access control separating teacher and student privileges, with relational Sequelize schemas across users, courses, chapters, pages, and enrollments, plus duplicate enrollment checks.</p>
           <p>GitHub: <a href="https://github.com/hemkesh18/learning-management-system" target="_blank" rel="noopener noreferrer">github.com/hemkesh18/learning-management-system</a></p>
         </article>
 
         <article>
           <h3>Todo List Web Application</h3>
-          <p><strong>Tech stack:</strong> Node, Express, EJS, REST APIs</p>
-          <p>Full-stack task management web application built with Node.js, Express.js, and modular EJS templates.</p>
-          <p><strong>Design Decision:</strong> Engineered stateful RESTful CRUD endpoints with server-side payload validation and modular EJS component partials (header, form, list) ensuring clean separation of concerns and reliable state synchronization.</p>
+          <p><strong>Tech stack:</strong> Node, Express, PostgreSQL, Sequelize, EJS</p>
+          <p>A responsive task management application enabling users to create, update, complete, and delete tasks with client-server state synchronization.</p>
+          <p><strong>Design Decision:</strong> Engineered RESTful CRUD endpoints with HTTP 422 error handling and modular EJS component partials (header.ejs and reusable todos.ejs list sections categorized by overdue, due today, and due later).</p>
           <p>GitHub: <a href="https://github.com/hemkesh18/todo-list" target="_blank" rel="noopener noreferrer">github.com/hemkesh18/todo-list</a></p>
         </article>
       </section>
@@ -188,7 +189,7 @@
         <h2>Hackathons and Competitions</h2>
         <ul>
           <li><strong>Smart India Hackathon (SIH) 2026:</strong> Built the Flutter client and connected the machine learning inference backend (Flutter, Dart, Python, FastAPI, PostgreSQL). Outcome: Selected in the college-level round.</li>
-          <li><strong>Hack with Hyderabad 3.0:</strong> Built the full-stack web application, REST endpoints, and database schema (React, Node.js, Express.js, PostgreSQL, Tailwind CSS). Outcome: Built working prototype within 24 hours; verified participation.</li>
+          <li><strong>Hack with Hyderabad 3.0:</strong> Built Preflight, an agent that uses Vectorize Hindsight persistent memory to block risky deployments (Python, FastAPI, Groq LLM API, Vectorize Hindsight, React, Tailwind CSS). Outcome: Built a working prototype within 24 hours. [FILL IN: e.g. shortlisted / finalist / none yet]</li>
         </ul>
       </section>
 

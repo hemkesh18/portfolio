@@ -85,6 +85,8 @@ export const portfolioData = {
     benchmarkType: "Simulated Benchmark",
     setupNote:
       "150 simulated deployments, 9 repeat-outage incidents, comparing memory-enabled Preflight against a stateless baseline without memory.",
+    benchmarkResult:
+      "Result: with memory, Preflight caught 4 of 9 repeat-outage incidents; the stateless baseline caught 1 of 9.",
     howItWorks: [
       "Vectorize Hindsight memory stores historical deployment manifests, architectural diffs, and incident post-mortems with remediation runbooks.",
       "At deploy time, Preflight semantically compares the proposed release against stored incident patterns and blocks the release (exit code 1) if the risk score exceeds 0.60 or matches a known repeat-outage scenario.",
@@ -243,21 +245,21 @@ export const portfolioData = {
       badge: "Full-Stack Project",
       date: "November 2025",
       summary:
-        "A full-stack learning management platform supporting role-based access for administrators, instructors, and students, with dynamic course publishing and relational enrollment tracking.",
-      techStackLine: "Node, Express, PostgreSQL, EJS",
+        "A full-stack learning management platform supporting role-based access for teachers and students, with dynamic course publishing and relational enrollment tracking.",
+      techStackLine: "Node, Express, PostgreSQL, Sequelize ORM, EJS",
       concreteDecision:
-        "Engineered role-based access control (RBAC) separating administrative, instructor, and student privileges, with indexed PostgreSQL foreign keys preventing query bottlenecks during concurrent course enrollments.",
+        "Engineered role-based access control separating teacher and student privileges, with relational Sequelize schemas across users, courses, chapters, pages, and enrollments, plus duplicate enrollment checks.",
       bulletPoints: [
-        "Built full-stack role-based authorization guarding administrative dashboards, instructor course creation, and student enrollment routes.",
+        "Built role-based authorization routing teachers to course management dashboards and students to course enrollment views.",
         "Engineered server-rendered dynamic pages using modular EJS templates integrated with Express session validation.",
-        "Designed and normalized PostgreSQL schemas with explicit indexes on user credentials and course enrollments.",
+        "Designed relational PostgreSQL schemas with Sequelize ORM associations across Users, Courses, Chapters, Pages, and Enrollments.",
       ],
       keyTechnicalDecision:
-        "Designed relational PostgreSQL schemas with explicit indexes on user credentials, courses, and enrollments to prevent query slowdowns during peak enrollment windows.",
-      tech: ["Node", "Express", "PostgreSQL", "EJS"],
+        "Designed relational PostgreSQL schemas with Sequelize ORM associations connecting Users, Courses, Chapters, Pages, and Enrollments with duplicate enrollment validation.",
+      tech: ["Node", "Express", "PostgreSQL", "Sequelize ORM", "EJS"],
       github: "https://github.com/hemkesh18/learning-management-system",
       liveDemo: null,
-      metrics: "PostgreSQL RBAC & Indexed Schemas",
+      metrics: "PostgreSQL & Sequelize Associations",
     },
     {
       id: "todo-list-app",
@@ -268,17 +270,17 @@ export const portfolioData = {
       date: "July 2025",
       summary:
         "A responsive task management application enabling users to create, update, complete, and delete tasks with seamless client-server state synchronization.",
-      techStackLine: "Node, Express, EJS, REST APIs",
+      techStackLine: "Node, Express, PostgreSQL, Sequelize, EJS",
       concreteDecision:
-        "Engineered stateful RESTful CRUD endpoints with server-side payload validation and modular EJS component partials (header, form, list) ensuring clean separation of concerns and reliable state synchronization.",
+        "Engineered RESTful CRUD endpoints with HTTP 422 error handling and modular EJS component partials (header.ejs and reusable todos.ejs list sections categorized by overdue, due today, and due later).",
       bulletPoints: [
         "Built RESTful endpoints handling complete task lifecycles (creation, status update, inline editing, and deletion).",
-        "Structured frontend with modular EJS partials to maintain clean separation of concerns and fast server rendering.",
-        "Implemented input sanitization and error boundaries to prevent malformed payloads from crashing Express middleware.",
+        "Structured frontend with modular EJS partials (header.ejs and reusable todos.ejs categorized by overdue, due today, and due later).",
+        "Implemented database queries using Sequelize operators to filter tasks by due date.",
       ],
       keyTechnicalDecision:
-        "Engineered RESTful endpoints with input validation and modular EJS partials ensuring consistent state synchronization and clean separation of concerns.",
-      tech: ["Node", "Express", "EJS", "REST APIs"],
+        "Engineered RESTful endpoints with HTTP 422 error handling and modular EJS partials ensuring clean separation of concerns across overdue, today, and later task lists.",
+      tech: ["Node", "Express", "PostgreSQL", "Sequelize", "EJS"],
       github: "https://github.com/hemkesh18/todo-list",
       liveDemo: null,
       metrics: "RESTful Endpoints & Modular EJS",
@@ -300,10 +302,10 @@ export const portfolioData = {
     {
       id: "hack-with-hyderabad",
       name: "Hack with Hyderabad 3.0",
-      role: "Built the full-stack web application, REST endpoints, and database schema",
-      stack: "React, Node.js, Express.js, PostgreSQL, Tailwind CSS",
-      built: "Built full-stack responsive web client, REST API endpoints, and relational database schemas under a 24-hour sprint.",
-      outcome: "Built working prototype within 24 hours; verified participation.",
+      role: "Built Preflight, an agent that uses Vectorize Hindsight persistent memory to block risky deployments",
+      stack: "Python, FastAPI, Groq LLM API, Vectorize Hindsight, React, Tailwind CSS",
+      built: "Built Preflight, an autonomous CI/CD release safety gate that retrieves historical outage precedents from Vectorize Hindsight persistent memory and evaluates upcoming deployment risks using Groq LLM.",
+      outcome: "Built a working prototype within 24 hours. [FILL IN: e.g. shortlisted / finalist / none yet]",
       status: "verified",
       statusBadge: "Working Prototype",
     },

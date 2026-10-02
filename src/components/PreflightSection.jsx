@@ -190,6 +190,9 @@ export default function PreflightSection() {
               <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
                 <span className="font-semibold text-slate-800 dark:text-slate-200">Benchmark setup:</span> {preflight.setupNote}
               </p>
+              <p className="text-xs text-slate-700 dark:text-slate-300 mt-1">
+                <span className="font-semibold text-teal-800 dark:text-teal-300">Simulated benchmark result:</span> with memory, Preflight caught 4 of 9 repeat-outage incidents; the stateless baseline caught 1 of 9.
+              </p>
             </div>
             <span className="text-[11px] text-slate-400 font-mono">
               Ground-truth validated against data/results/replay.json
