@@ -54,13 +54,33 @@ describe('Portfolio Data Integrity', () => {
     }
   });
 
-  test('skills are cleanly partitioned into Strong and Familiar', () => {
-    const groups = portfolioData.skills.map((s) => s.group);
-    assert.deepEqual(groups, ['Strong', 'Familiar']);
-    const strongSkills = portfolioData.skills.find((s) => s.group === 'Strong').items;
-    assert.deepEqual(strongSkills, ['Java', 'Python', 'JavaScript', 'SQL', 'React', 'Node/Express', 'PostgreSQL']);
-    const familiarSkills = portfolioData.skills.find((s) => s.group === 'Familiar').items;
-    assert.deepEqual(familiarSkills, ['C', 'C++']);
+  test('skills are grouped into 4 domain cards with verified project usage', () => {
+    const categories = portfolioData.skills.map((s) => s.category);
+    assert.deepEqual(categories, [
+      'Languages',
+      'Backend and Data',
+      'Frontend',
+      'AI and Agents',
+    ]);
+
+    const languages = portfolioData.skills.find((s) => s.category === 'Languages').items.map((i) => i.name);
+    assert.deepEqual(languages, ['Java', 'Python', 'JavaScript', 'SQL', 'C', 'C++']);
+
+    const backend = portfolioData.skills.find((s) => s.category === 'Backend and Data').items.map((i) => i.name);
+    assert.deepEqual(backend, ['Node.js', 'Express', 'FastAPI', 'PostgreSQL', 'Sequelize']);
+
+    const frontend = portfolioData.skills.find((s) => s.category === 'Frontend').items.map((i) => i.name);
+    assert.deepEqual(frontend, ['React', 'Tailwind CSS', 'EJS']);
+
+    const ai = portfolioData.skills.find((s) => s.category === 'AI and Agents').items.map((i) => i.name);
+    assert.deepEqual(ai, ['Groq LLM API', 'Vectorize Hindsight memory']);
+
+    // Check Strong and Familiar markers
+    const allSkills = portfolioData.skills.flatMap((s) => s.items);
+    const strong = allSkills.filter((i) => i.level === 'Strong').map((i) => i.name);
+    assert.deepEqual(strong, ['Java', 'Python', 'JavaScript', 'SQL', 'Node.js', 'Express', 'PostgreSQL', 'React']);
+    const familiar = allSkills.filter((i) => i.level === 'Familiar').map((i) => i.name);
+    assert.deepEqual(familiar, ['C', 'C++']);
   });
 
   test('zero em dashes or en dashes across portfolio source text', () => {

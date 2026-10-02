@@ -1,37 +1,99 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { CheckCircle2, Code2, Wrench, Layers } from 'lucide-react';
+import {
+  Coffee,
+  Terminal,
+  FileCode,
+  Database,
+  Code,
+  Code2,
+  Server,
+  Zap,
+  Layers,
+  Atom,
+  Sparkles,
+  Braces,
+  Cpu,
+  Brain,
+  Layout,
+  Info,
+} from 'lucide-react';
+
+const iconMap = {
+  Coffee,
+  Terminal,
+  FileCode,
+  Database,
+  Code,
+  Code2,
+  Server,
+  Zap,
+  Layers,
+  Atom,
+  Sparkles,
+  Braces,
+  Cpu,
+  Brain,
+};
+
+const categoryIconMap = {
+  Languages: Code2,
+  'Backend and Data': Server,
+  Frontend: Layout,
+  'AI and Agents': Brain,
+};
 
 export default function Skills() {
   const { skills } = portfolioData;
+  const [activeSkill, setActiveSkill] = useState(null);
+  const [tooltipPos, setTooltipPos] = useState({ left: '50%', transform: 'translateX(-50%)', align: 'center' });
+  const containerRef = useRef(null);
 
-  const getGroupBadge = (group) => {
-    switch (group) {
-      case 'Strong':
-        return {
-          icon: <CheckCircle2 size={16} className="text-teal-700 dark:text-teal-400" />,
-          badge: 'bg-teal-50 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300 border-teal-200 dark:border-teal-800',
-        };
-      case 'Working':
-        return {
-          icon: <Code2 size={16} className="text-blue-700 dark:text-blue-400" />,
-          badge: 'bg-blue-50 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 border-blue-200 dark:border-blue-800',
-        };
-      case 'Familiar':
-        return {
-          icon: <Layers size={16} className="text-slate-600 dark:text-slate-400" />,
-          badge: 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-300 border-slate-200 dark:border-slate-700',
-        };
-      default:
-        return {
-          icon: <Wrench size={16} />,
-          badge: 'bg-slate-100 text-slate-800',
-        };
+  // Close tooltip on outside click
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
+        setActiveSkill(null);
+      }
+    };
+    document.addEventListener('pointerdown', handleOutsideClick);
+    return () => document.removeEventListener('pointerdown', handleOutsideClick);
+  }, []);
+
+  const handleActivate = (e, skill) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const screenWidth = window.innerWidth;
+
+    if (rect.left < 130) {
+      setTooltipPos({ left: '0', right: 'auto', transform: 'none', align: 'left' });
+    } else if (screenWidth - rect.right < 130) {
+      setTooltipPos({ left: 'auto', right: '0', transform: 'none', align: 'right' });
+    } else {
+      setTooltipPos({ left: '50%', right: 'auto', transform: 'translateX(-50%)', align: 'center' });
+    }
+    setActiveSkill(skill.name);
+  };
+
+  const handleDeactivate = (skill) => {
+    if (activeSkill === skill.name) {
+      setActiveSkill(null);
+    }
+  };
+
+  const handleToggle = (e, skill) => {
+    if (activeSkill === skill.name) {
+      setActiveSkill(null);
+    } else {
+      handleActivate(e, skill);
     }
   };
 
   return (
-    <section id="skills" className="py-16 md:py-20 border-b border-slate-200/80 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/20">
+    <section
+      id="skills"
+      ref={containerRef}
+      className="py-16 md:py-20 border-b border-slate-200/80 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/20"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-8">
@@ -41,55 +103,151 @@ export default function Skills() {
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white mt-1">
             Technical Skills
           </h2>
-          <p className="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-xl">
-            Regrouped honestly by proficiency. No filler listings or inflated skill bars.
+          <p className="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-2xl">
+            Grouped by engineering domain with verified repository usage. Hover, tap, or focus any skill to inspect the projects it powers.
           </p>
         </div>
 
-        {/* 2 Columns: Strong and Familiar */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {skills.map((group, idx) => {
-            const style = getGroupBadge(group.group);
+        {/* 4 Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          {skills.map((card, cIdx) => {
+            const CategoryIcon = categoryIconMap[card.category] || Code2;
+            const activeCardSkill = card.items.find((i) => i.name === activeSkill);
+
             return (
               <div
-                key={idx}
-                className="p-5 sm:p-6 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between"
+                key={cIdx}
+                className="p-5 sm:p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 flex flex-col justify-between shadow-sm transition-all"
               >
                 <div>
-                  <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-                    <div className="flex items-center gap-2">
-                      {style.icon}
+                  {/* Card Header */}
+                  <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 dark:border-slate-800">
+                    <div className="flex items-center gap-2.5">
+                      <div className="p-1.5 rounded-lg bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-400 border border-teal-200/60 dark:border-teal-800/60">
+                        <CategoryIcon size={18} />
+                      </div>
                       <h3 className="font-bold text-base text-slate-900 dark:text-white">
-                        {group.group}
+                        {card.category}
                       </h3>
                     </div>
-
-                    <span className={`px-2 py-0.5 rounded text-[11px] font-semibold border ${style.badge}`}>
-                      {group.items.length} items
+                    <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                      {card.items.length} skills
                     </span>
                   </div>
 
-                  <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
-                    {group.description}
+                  {/* Card Description */}
+                  <p className="mt-2.5 text-xs text-slate-500 dark:text-slate-400">
+                    {card.description}
                   </p>
 
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {group.items.map((skill, sIdx) => {
-                      const isTodo = skill.includes('[TODO');
+                  {/* Chips Container */}
+                  <div className="mt-4 flex flex-wrap gap-2 sm:gap-2.5">
+                    {card.items.map((skill, sIdx) => {
+                      const IconComponent = iconMap[skill.icon] || Code;
+                      const isActive = activeSkill === skill.name;
+                      const tooltipId = `tooltip-${cIdx}-${sIdx}`;
+
                       return (
-                        <span
+                        <div
                           key={sIdx}
-                          className={`px-2.5 py-1 rounded text-xs font-medium border ${
-                            isTodo
-                              ? 'bg-amber-50 dark:bg-amber-950/60 text-amber-900 dark:text-amber-200 border-amber-200 dark:border-amber-800/80 font-mono text-[11px]'
-                              : 'bg-slate-50 dark:bg-slate-800/60 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-700/80'
+                          role="button"
+                          tabIndex={0}
+                          aria-label={`${skill.name}${skill.level ? ` (${skill.level})` : ''}. Used in: ${skill.usedIn}`}
+                          aria-describedby={isActive ? tooltipId : undefined}
+                          onMouseEnter={(e) => handleActivate(e, skill)}
+                          onMouseLeave={() => handleDeactivate(skill)}
+                          onFocus={(e) => handleActivate(e, skill)}
+                          onBlur={() => handleDeactivate(skill)}
+                          onClick={(e) => handleToggle(e, skill)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault();
+                              handleToggle(e, skill);
+                            } else if (e.key === 'Escape') {
+                              setActiveSkill(null);
+                            }
+                          }}
+                          className={`relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer transition-all duration-150 select-none border focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-1 dark:focus:ring-offset-slate-900 ${
+                            isActive
+                              ? 'bg-teal-50 dark:bg-teal-950/60 border-teal-400 dark:border-teal-600 text-teal-950 dark:text-teal-100 shadow-sm'
+                              : 'bg-slate-50 hover:bg-slate-100/90 dark:bg-slate-800/60 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-700/80'
                           }`}
                         >
-                          {skill}
-                        </span>
+                          <IconComponent
+                            size={14}
+                            className={`shrink-0 ${
+                              isActive
+                                ? 'text-teal-700 dark:text-teal-300'
+                                : 'text-slate-500 dark:text-slate-400'
+                            }`}
+                          />
+                          <span className="font-semibold">{skill.name}</span>
+
+                          {/* Strong Marker */}
+                          {skill.level === 'Strong' && (
+                            <span className="ml-1 px-1.5 py-0.2 rounded text-[10px] font-bold bg-teal-100/80 dark:bg-teal-950/90 text-teal-800 dark:text-teal-300 border border-teal-300/70 dark:border-teal-700/70">
+                              Strong
+                            </span>
+                          )}
+
+                          {/* Familiar Marker */}
+                          {skill.level === 'Familiar' && (
+                            <span className="ml-1 px-1.5 py-0.2 rounded text-[10px] font-bold bg-slate-200/80 dark:bg-slate-700/80 text-slate-700 dark:text-slate-300 border border-slate-300/80 dark:border-slate-600">
+                              Familiar
+                            </span>
+                          )}
+
+                          {/* Floating Tooltip */}
+                          <div
+                            id={tooltipId}
+                            role="tooltip"
+                            style={{
+                              left: tooltipPos.left,
+                              right: tooltipPos.right,
+                              transform: tooltipPos.transform,
+                            }}
+                            className={`absolute bottom-full mb-2 z-30 w-max max-w-[210px] sm:max-w-xs px-2.5 py-1.5 text-xs text-left font-normal rounded-md shadow-xl bg-slate-950 text-slate-100 dark:bg-slate-100 dark:text-slate-900 border border-slate-800 dark:border-slate-200 transition-all duration-150 pointer-events-none ${
+                              isActive
+                                ? 'opacity-100 scale-100 visible'
+                                : 'opacity-0 scale-95 invisible'
+                            }`}
+                          >
+                            <span className="font-semibold text-teal-400 dark:text-teal-700">
+                              Used in:
+                            </span>{' '}
+                            <span>{skill.usedIn}</span>
+
+                            {/* Arrow Pointer */}
+                            <div
+                              className={`absolute top-full -mt-1 border-4 border-transparent border-t-slate-950 dark:border-t-slate-100 ${
+                                tooltipPos.align === 'left'
+                                  ? 'left-4'
+                                  : tooltipPos.align === 'right'
+                                  ? 'right-4'
+                                  : 'left-1/2 -translate-x-1/2'
+                              }`}
+                            />
+                          </div>
+                        </div>
                       );
                     })}
                   </div>
+                </div>
+
+                {/* Accessible Card Context Footer */}
+                <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800/80 min-h-[32px] flex items-center text-[11px] text-slate-500 dark:text-slate-400">
+                  {activeCardSkill ? (
+                    <div className="flex items-center gap-1.5 text-teal-800 dark:text-teal-300">
+                      <Info size={13} className="shrink-0 text-teal-600 dark:text-teal-400" />
+                      <span>
+                        <strong className="font-semibold">{activeCardSkill.name}:</strong> Used in {activeCardSkill.usedIn}
+                      </span>
+                    </div>
+                  ) : (
+                    <span className="italic text-slate-400 dark:text-slate-500">
+                      Hover or tap any chip to inspect project verification
+                    </span>
+                  )}
                 </div>
               </div>
             );

@@ -126,8 +126,10 @@ export default function ResumeModal({ isOpen, onClose }) {
             <div className="space-y-1 text-xs">
               {skills.map((s, idx) => (
                 <p key={idx}>
-                  <strong className="text-slate-900 dark:text-white font-semibold">{s.group}:</strong>{' '}
-                  <span className="text-slate-600 dark:text-slate-300">{s.items.join(', ')}</span>
+                  <strong className="text-slate-900 dark:text-white font-semibold">{s.category || s.group}:</strong>{' '}
+                  <span className="text-slate-600 dark:text-slate-300">
+                    {s.items.map((item) => (typeof item === 'string' ? item : item.name)).join(', ')}
+                  </span>
                 </p>
               ))}
             </div>

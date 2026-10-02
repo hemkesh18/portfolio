@@ -49,27 +49,126 @@ export const portfolioData = {
       "My primary project is Preflight, an autonomous release safety gate that connects persistent memory to CI/CD pipelines to catch recurring outage patterns before production. Outside software engineering, I teach competitive Mathematics, Physics, and Chemistry to secondary school students at Brain Hub.",
   },
 
-  // Technical Skills Regrouped by Strength: Strong and Familiar (No generic tools)
+  // Technical Skills grouped into 4 domain cards with verified project usage
   skills: [
     {
-      group: "Strong",
-      description: "Languages, frontend, and backend systems used to build end-to-end applications",
+      category: "Languages",
+      description: "Core languages for systems, algorithms, and applications",
       items: [
-        "Java",
-        "Python",
-        "JavaScript",
-        "SQL",
-        "React",
-        "Node/Express",
-        "PostgreSQL",
+        {
+          name: "Java",
+          level: "Strong",
+          usedIn: "LeetCode (100+ Solved), CBIT Coursework",
+          icon: "Coffee",
+        },
+        {
+          name: "Python",
+          level: "Strong",
+          usedIn: "Preflight",
+          icon: "Terminal",
+        },
+        {
+          name: "JavaScript",
+          level: "Strong",
+          usedIn: "Learning Management System, Todo List, Preflight, Portfolio",
+          icon: "FileCode",
+        },
+        {
+          name: "SQL",
+          level: "Strong",
+          usedIn: "Learning Management System, Todo List",
+          icon: "Database",
+        },
+        {
+          name: "C",
+          level: "Familiar",
+          usedIn: "CBIT Coursework",
+          icon: "Code",
+        },
+        {
+          name: "C++",
+          level: "Familiar",
+          usedIn: "CBIT Coursework",
+          icon: "Code2",
+        },
       ],
     },
     {
-      group: "Familiar",
-      description: "Systems programming languages explored through coursework and prototypes",
+      category: "Backend and Data",
+      description: "Server runtimes, REST frameworks, and relational databases",
       items: [
-        "C",
-        "C++",
+        {
+          name: "Node.js",
+          level: "Strong",
+          usedIn: "Learning Management System, Todo List",
+          icon: "Server",
+        },
+        {
+          name: "Express",
+          level: "Strong",
+          usedIn: "Learning Management System, Todo List",
+          icon: "Zap",
+        },
+        {
+          name: "FastAPI",
+          level: null,
+          usedIn: "Preflight",
+          icon: "Zap",
+        },
+        {
+          name: "PostgreSQL",
+          level: "Strong",
+          usedIn: "Learning Management System, Todo List",
+          icon: "Database",
+        },
+        {
+          name: "Sequelize",
+          level: null,
+          usedIn: "Learning Management System, Todo List",
+          icon: "Layers",
+        },
+      ],
+    },
+    {
+      category: "Frontend",
+      description: "User interfaces, component styling, and template rendering",
+      items: [
+        {
+          name: "React",
+          level: "Strong",
+          usedIn: "Preflight, Portfolio",
+          icon: "Atom",
+        },
+        {
+          name: "Tailwind CSS",
+          level: null,
+          usedIn: "Preflight, Portfolio, Todo List",
+          icon: "Sparkles",
+        },
+        {
+          name: "EJS",
+          level: null,
+          usedIn: "Learning Management System, Todo List",
+          icon: "Braces",
+        },
+      ],
+    },
+    {
+      category: "AI and Agents",
+      description: "LLM inference orchestration and persistent memory engines",
+      items: [
+        {
+          name: "Groq LLM API",
+          level: null,
+          usedIn: "Preflight",
+          icon: "Cpu",
+        },
+        {
+          name: "Vectorize Hindsight memory",
+          level: null,
+          usedIn: "Preflight",
+          icon: "Brain",
+        },
       ],
     },
   ],
