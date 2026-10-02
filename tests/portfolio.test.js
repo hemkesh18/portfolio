@@ -54,13 +54,14 @@ describe('Portfolio Data Integrity', () => {
     }
   });
 
-  test('skills are grouped into 4 domain cards with verified project usage', () => {
+  test('skills are grouped into 5 domain cards with verified project usage', () => {
     const categories = portfolioData.skills.map((s) => s.category);
     assert.deepEqual(categories, [
       'Languages',
       'Backend and Data',
       'Frontend',
       'AI and Agents',
+      'CS Foundations',
     ]);
 
     const languages = portfolioData.skills.find((s) => s.category === 'Languages').items.map((i) => i.name);
@@ -70,10 +71,15 @@ describe('Portfolio Data Integrity', () => {
     assert.deepEqual(backend, ['Node.js', 'Express', 'FastAPI', 'PostgreSQL', 'Sequelize', 'EJS']);
 
     const frontend = portfolioData.skills.find((s) => s.category === 'Frontend').items.map((i) => i.name);
-    assert.deepEqual(frontend, ['React', 'Tailwind CSS', 'HTML/CSS', 'HTML5', 'Bootstrap']);
+    assert.deepEqual(frontend, ['React', 'Tailwind CSS', 'Vite', 'HTML/CSS', 'HTML5', 'Bootstrap']);
 
     const ai = portfolioData.skills.find((s) => s.category === 'AI and Agents').items.map((i) => i.name);
     assert.deepEqual(ai, ['Groq LLM API', 'Vectorize Hindsight memory']);
+
+    const cs = portfolioData.skills.find((s) => s.category === 'CS Foundations').items;
+    assert.deepEqual(cs.map((i) => i.name), ['Data Structures', 'Algorithms', 'DBMS']);
+    // CS Foundations must not have "Used in" tooltips
+    assert.ok(cs.every((i) => i.usedIn === null));
 
     // Check Strong and Familiar markers
     const allSkills = portfolioData.skills.flatMap((s) => s.items);
@@ -81,6 +87,30 @@ describe('Portfolio Data Integrity', () => {
     assert.deepEqual(strong, ['Java', 'Python', 'JavaScript', 'SQL', 'Node.js', 'Express', 'PostgreSQL', 'React']);
     const familiar = allSkills.filter((i) => i.level === 'Familiar').map((i) => i.name);
     assert.deepEqual(familiar, ['C', 'C++']);
+  });
+
+  test('projects are ordered Preflight, LMS, Todo List, Personal Developer Portfolio with verified fields', () => {
+    const projectIds = portfolioData.projects.map((p) => p.id);
+    assert.deepEqual(projectIds, [
+      'preflight',
+      'learning-management-system',
+      'todo-list-app',
+      'personal-portfolio',
+    ]);
+
+    for (const project of portfolioData.projects) {
+      assert.ok(project.problem && project.problem.length > 10, `${project.id} must have a problem statement`);
+      assert.ok((project.whatIBuilt || project.summary).length > 10, `${project.id} must have a what I built statement`);
+      assert.ok(project.techStackLine && project.techStackLine.length > 5, `${project.id} must have a tech stack line`);
+      assert.ok(project.github && project.github.startsWith('https://github.com/'), `${project.id} must have a valid GitHub link`);
+    }
+
+    const portfolioCard = portfolioData.projects.find((p) => p.id === 'personal-portfolio');
+    assert.ok(portfolioCard.techStackLine.includes('React'));
+    assert.ok(portfolioCard.techStackLine.includes('Tailwind CSS'));
+    assert.ok(portfolioCard.techStackLine.includes('Vite'));
+    assert.ok(portfolioCard.techStackLine.includes('Lucide Icons'));
+    assert.equal(portfolioCard.liveDemo, 'https://portfolio-phi-sage-60.vercel.app/');
   });
 
   test('zero em dashes or en dashes across portfolio source text', () => {

@@ -179,6 +179,7 @@
           <ul>
             <li><strong>React</strong> (Strong) - Used in: Preflight, Portfolio</li>
             <li><strong>Tailwind CSS</strong> - Used in: Preflight, Portfolio, Todo List</li>
+            <li><strong>Vite</strong> - Used in: Preflight, Portfolio</li>
             <li><strong>HTML/CSS</strong> - Used in: Learning Management System, Todo List, Preflight, Portfolio</li>
             <li><strong>HTML5</strong> - Used in: Learning Management System, Todo List, Preflight, Portfolio</li>
             <li><strong>Bootstrap</strong> - Used in: CBIT Coursework</li>
@@ -191,13 +192,23 @@
             <li><strong>Vectorize Hindsight memory</strong> - Used in: Preflight</li>
           </ul>
         </div>
+        <div>
+          <h3>CS Foundations</h3>
+          <ul>
+            <li><strong>Data Structures</strong></li>
+            <li><strong>Algorithms</strong></li>
+            <li><strong>DBMS</strong></li>
+          </ul>
+        </div>
       </section>
 
       <section id="projects">
         <h2>Featured Engineering Projects</h2>
         <article>
           <h3>Preflight: Autonomous CI/CD Release Safety Gate</h3>
-          <p>Autonomous safety gate powered by Vectorize Hindsight persistent memory to catch recurrent deployment regressions before production.</p>
+          <p><strong>Problem:</strong> Release pipelines lose institutional memory. When on-call engineers leave or incident post-mortems stay buried in static documentation, known failure patterns repeat silently in production.</p>
+          <p><strong>What I built:</strong> Autonomous safety gate powered by Vectorize Hindsight persistent memory to catch recurrent deployment regressions before production.</p>
+          <p><strong>Tech stack:</strong> Python, FastAPI, Groq LLM API, Vectorize Hindsight, React, Tailwind CSS</p>
           <p><strong>How it works:</strong> Vectorize Hindsight memory stores historical deployment manifests, architectural diffs, and incident post-mortems with remediation runbooks. At deploy time, Preflight semantically compares the proposed release against stored incident patterns and blocks the release (exit code 1) if the risk score exceeds 0.60 or matches a known repeat-outage scenario.</p>
           <p><strong>Benchmark setup:</strong> 150 simulated deployments, 9 repeat-outage incidents, comparing memory-enabled Preflight against a stateless baseline without memory.</p>
           <p><strong>Simulated benchmark result:</strong> with memory, Preflight caught 4 of 9 repeat-outage incidents; the stateless baseline caught 1 of 9.</p>
@@ -207,18 +218,29 @@
 
         <article>
           <h3>Learning Management System (LMS)</h3>
+          <p><strong>Problem:</strong> Managing multi-role educational workflows requires strict server-enforced access boundaries between teachers and students while preventing duplicate course enrollments.</p>
+          <p><strong>What I built:</strong> Full-stack learning management platform supporting role-based access for teachers and students, with dynamic course publishing and relational enrollment tracking.</p>
           <p><strong>Tech stack:</strong> Node, Express, PostgreSQL, Sequelize ORM, EJS</p>
-          <p>Full-stack learning management platform supporting role-based access for teachers and students, with dynamic course publishing and relational enrollment tracking.</p>
           <p><strong>Design Decision:</strong> Engineered role-based access control separating teacher and student privileges, with relational Sequelize schemas across users, courses, chapters, pages, and enrollments, plus duplicate enrollment checks.</p>
           <p>GitHub: <a href="https://github.com/hemkesh18/learning-management-system" target="_blank" rel="noopener noreferrer">github.com/hemkesh18/learning-management-system</a></p>
         </article>
 
         <article>
           <h3>Todo List Web Application</h3>
+          <p><strong>Problem:</strong> Task management applications often suffer from poor client-server state synchronization, unhandled 422 payload errors, and unorganized task deadlines.</p>
+          <p><strong>What I built:</strong> A responsive task management application enabling users to create, update, complete, and delete tasks with client-server state synchronization.</p>
           <p><strong>Tech stack:</strong> Node, Express, PostgreSQL, Sequelize, EJS</p>
-          <p>A responsive task management application enabling users to create, update, complete, and delete tasks with client-server state synchronization.</p>
           <p><strong>Design Decision:</strong> Engineered RESTful CRUD endpoints with HTTP 422 error handling and modular EJS component partials (header.ejs and reusable todos.ejs list sections categorized by overdue, due today, and due later).</p>
           <p>GitHub: <a href="https://github.com/hemkesh18/todo-list" target="_blank" rel="noopener noreferrer">github.com/hemkesh18/todo-list</a></p>
+        </article>
+
+        <article>
+          <h3>Personal Developer Portfolio</h3>
+          <p><strong>Problem:</strong> Standard developer portfolios frequently rely on ungrounded skill percentages, suffer from slow initial load flashes, and lack recruiter-oriented features like printable ATS previews.</p>
+          <p><strong>What I built:</strong> A responsive single-page developer portfolio with persistent dark/light mode theming, an ATS resume modal, a keyboard-driven command palette (Cmd+K), and zero-flash preloading.</p>
+          <p><strong>Tech stack:</strong> React, Tailwind CSS, Vite, Lucide Icons</p>
+          <p>Live Application: <a href="https://portfolio-phi-sage-60.vercel.app/" target="_blank" rel="noopener noreferrer">portfolio-phi-sage-60.vercel.app</a></p>
+          <p>GitHub Repository: <a href="https://github.com/hemkesh18/portfolio" target="_blank" rel="noopener noreferrer">github.com/hemkesh18/portfolio</a></p>
         </article>
       </section>
 

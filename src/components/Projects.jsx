@@ -112,9 +112,18 @@ export default function Projects() {
                   </div>
                 )}
 
-                {/* Summary */}
-                <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  {project.summary}
+                {/* Problem Statement */}
+                {project.problem && (
+                  <p className="mt-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <strong className="font-semibold text-slate-900 dark:text-white">Problem: </strong>
+                    <span>{project.problem}</span>
+                  </p>
+                )}
+
+                {/* What I built */}
+                <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <strong className="font-semibold text-slate-900 dark:text-white">What I built: </strong>
+                  <span>{project.whatIBuilt || project.summary}</span>
                 </p>
 
                 {/* Concrete Feature & Design Decision */}

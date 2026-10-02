@@ -152,6 +152,12 @@ export const portfolioData = {
           icon: "Sparkles",
         },
         {
+          name: "Vite",
+          level: null,
+          usedIn: "Preflight, Portfolio",
+          icon: "Zap",
+        },
+        {
           name: "HTML/CSS",
           level: null,
           usedIn: "Learning Management System, Todo List, Preflight, Portfolio",
@@ -186,6 +192,30 @@ export const portfolioData = {
           level: null,
           usedIn: "Preflight",
           icon: "Brain",
+        },
+      ],
+    },
+    {
+      category: "CS Foundations",
+      description: "Core computer science fundamentals and systems design principles",
+      items: [
+        {
+          name: "Data Structures",
+          level: null,
+          usedIn: null,
+          icon: "Layers",
+        },
+        {
+          name: "Algorithms",
+          level: null,
+          usedIn: null,
+          icon: "Binary",
+        },
+        {
+          name: "DBMS",
+          level: null,
+          usedIn: null,
+          icon: "Database",
         },
       ],
     },
@@ -352,8 +382,36 @@ export const portfolioData = {
     ],
   },
 
-  // Featured Engineering Projects: LMS and Todo List
+  // Featured Engineering Projects: Preflight, LMS, Todo List, and Personal Developer Portfolio
   projects: [
+    {
+      id: "preflight",
+      title: "Preflight",
+      subtitle: "Autonomous Release Safety Gate with Persistent Memory",
+      category: "AI Systems & CI/CD",
+      badge: "Flagship AI Project",
+      date: "October 2026",
+      problem:
+        "Release pipelines lose institutional memory. When on-call engineers leave or incident post-mortems stay buried in static documentation, known failure patterns repeat silently in production.",
+      whatIBuilt:
+        "An autonomous CI/CD release safety gate that retrieves historical outage precedents from Vectorize Hindsight persistent memory and evaluates upcoming deployment risks using Groq LLM API.",
+      summary:
+        "An AI agent at the CI/CD gate that recalls past deployments, outages, and runbooks from Vectorize Hindsight persistent memory and returns PASS, WARN, or BLOCK with cited evidence.",
+      techStackLine: "Python, FastAPI, Groq LLM API, Vectorize Hindsight, React, Tailwind CSS",
+      concreteDecision:
+        "Vectorize Hindsight memory stores historical deployment manifests, architectural diffs, and incident post-mortems with remediation runbooks, blocking releases (exit code 1) when the risk score exceeds 0.60.",
+      bulletPoints: [
+        "Integrated Vectorize Hindsight memory to semantically index deployment manifests, architectural diffs, and incident remediation runbooks.",
+        "Engineered release risk evaluation using Groq LLM API with hallucinated citation validation and deterministic boundary clamping.",
+        "Benchmarked across 150 simulated deployments: caught 4 of 9 repeat incidents with memory enabled vs 1 of 9 in the stateless baseline.",
+      ],
+      keyTechnicalDecision:
+        "Anchored Hindsight queries to semantic deployment content to prevent temporal leakage and stripped hallucinated citation IDs before returning gate verdicts.",
+      tech: ["Python", "FastAPI", "Groq LLM", "Hindsight", "React", "Tailwind CSS"],
+      github: "https://github.com/hemkesh18/preflight",
+      liveDemo: "https://preflight-kw3s.vercel.app/",
+      metrics: "4/9 Repeat Outages Flagged",
+    },
     {
       id: "learning-management-system",
       title: "Learning Management System",
@@ -361,6 +419,10 @@ export const portfolioData = {
       category: "Full-Stack Web",
       badge: "Full-Stack Project",
       date: "November 2025",
+      problem:
+        "Managing multi-role educational workflows requires strict server-enforced access boundaries between teachers and students while preventing duplicate course enrollments.",
+      whatIBuilt:
+        "A full-stack learning management platform supporting role-based access for teachers and students, with dynamic course publishing and relational enrollment tracking.",
       summary:
         "A full-stack learning management platform supporting role-based access for teachers and students, with dynamic course publishing and relational enrollment tracking.",
       techStackLine: "Node, Express, PostgreSQL, Sequelize ORM, EJS",
@@ -385,6 +447,10 @@ export const portfolioData = {
       category: "Full-Stack Web",
       badge: "Web Application",
       date: "July 2025",
+      problem:
+        "Task management applications often suffer from poor client-server state synchronization, unhandled 422 payload errors, and unorganized task deadlines.",
+      whatIBuilt:
+        "A responsive task management application enabling users to create, update, complete, and delete tasks with seamless client-server state synchronization.",
       summary:
         "A responsive task management application enabling users to create, update, complete, and delete tasks with seamless client-server state synchronization.",
       techStackLine: "Node, Express, PostgreSQL, Sequelize, EJS",
@@ -401,6 +467,35 @@ export const portfolioData = {
       github: "https://github.com/hemkesh18/todo-list",
       liveDemo: null,
       metrics: "RESTful Endpoints & Modular EJS",
+    },
+    {
+      id: "personal-portfolio",
+      title: "Personal Developer Portfolio",
+      subtitle: "Interactive Single-Page Application with Command Palette and ATS Preview",
+      category: "Frontend System",
+      badge: "Portfolio System",
+      date: "October 2026",
+      problem:
+        "Standard developer portfolios frequently rely on ungrounded skill percentages, suffer from slow initial load flashes, and lack recruiter-oriented features like printable ATS previews.",
+      whatIBuilt:
+        "A responsive single-page developer portfolio with persistent dark/light mode theming, an ATS resume modal, a keyboard-driven command palette (Cmd+K), and zero-flash preloading.",
+      summary:
+        "A responsive single-page developer portfolio with persistent dark/light mode theming, an ATS resume modal, a keyboard-driven command palette (Cmd+K), and zero-flash preloading.",
+      techStackLine: "React, Tailwind CSS, Vite, Lucide Icons",
+      concreteDecision:
+        "Engineered persistent dark/light theme switching with zero white-flash preloader, keyboard-driven Command Palette (Cmd+K), and printable ATS-formatted resume preview modal.",
+      bulletPoints: [
+        "Engineered client-side dark/light mode state management with localStorage persistence and an inline CSS preloader to prevent white-flash loading.",
+        "Built a keyboard-driven Command Palette accessible via Ctrl+K / Cmd+K supporting rapid section navigation.",
+        "Developed a printable ATS resume preview modal with structured markdown copy and one-click PDF retrieval.",
+        "Integrated an automated node test suite verifying data integrity, project links, and typography invariants.",
+      ],
+      keyTechnicalDecision:
+        "Engineered persistent dark/light theme switching with zero white-flash preloader, keyboard-driven Command Palette (Cmd+K), and printable ATS-formatted resume preview modal.",
+      tech: ["React", "Tailwind CSS", "Vite", "Lucide Icons"],
+      github: "https://github.com/hemkesh18/portfolio",
+      liveDemo: "https://portfolio-phi-sage-60.vercel.app/",
+      metrics: "Vite + React + Tailwind",
     },
   ],
 
