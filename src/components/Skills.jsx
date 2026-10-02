@@ -16,6 +16,7 @@ import {
   Cpu,
   Brain,
   Layout,
+  Boxes,
   Info,
 } from 'lucide-react';
 
@@ -34,6 +35,8 @@ const iconMap = {
   Braces,
   Cpu,
   Brain,
+  Layout,
+  Boxes,
 };
 
 const categoryIconMap = {

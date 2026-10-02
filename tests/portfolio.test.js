@@ -67,10 +67,10 @@ describe('Portfolio Data Integrity', () => {
     assert.deepEqual(languages, ['Java', 'Python', 'JavaScript', 'SQL', 'C', 'C++']);
 
     const backend = portfolioData.skills.find((s) => s.category === 'Backend and Data').items.map((i) => i.name);
-    assert.deepEqual(backend, ['Node.js', 'Express', 'FastAPI', 'PostgreSQL', 'Sequelize']);
+    assert.deepEqual(backend, ['Node.js', 'Express', 'FastAPI', 'PostgreSQL', 'Sequelize', 'EJS']);
 
     const frontend = portfolioData.skills.find((s) => s.category === 'Frontend').items.map((i) => i.name);
-    assert.deepEqual(frontend, ['React', 'Tailwind CSS', 'EJS']);
+    assert.deepEqual(frontend, ['React', 'Tailwind CSS', 'HTML/CSS', 'HTML5', 'Bootstrap']);
 
     const ai = portfolioData.skills.find((s) => s.category === 'AI and Agents').items.map((i) => i.name);
     assert.deepEqual(ai, ['Groq LLM API', 'Vectorize Hindsight memory']);

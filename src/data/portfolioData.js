@@ -127,6 +127,12 @@ export const portfolioData = {
           usedIn: "Learning Management System, Todo List",
           icon: "Layers",
         },
+        {
+          name: "EJS",
+          level: null,
+          usedIn: "Learning Management System, Todo List",
+          icon: "Braces",
+        },
       ],
     },
     {
@@ -146,10 +152,22 @@ export const portfolioData = {
           icon: "Sparkles",
         },
         {
-          name: "EJS",
+          name: "HTML/CSS",
           level: null,
-          usedIn: "Learning Management System, Todo List",
-          icon: "Braces",
+          usedIn: "Learning Management System, Todo List, Preflight, Portfolio",
+          icon: "Layout",
+        },
+        {
+          name: "HTML5",
+          level: null,
+          usedIn: "Learning Management System, Todo List, Preflight, Portfolio",
+          icon: "FileCode",
+        },
+        {
+          name: "Bootstrap",
+          level: null,
+          usedIn: "CBIT Coursework",
+          icon: "Boxes",
         },
       ],
     },
